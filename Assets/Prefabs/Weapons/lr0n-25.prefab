@@ -5159,6 +5159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Lr0n-25
+  weaponIcon: {fileID: 21300000, guid: 95e7b630b009af94f9ac02480d0aaff9, type: 3}
   fireRate: 2
   semiAutomatic: 1
   isBurstFire: 0

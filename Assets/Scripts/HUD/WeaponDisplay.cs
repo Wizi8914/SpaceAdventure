@@ -1,12 +1,14 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponDispla : MonoBehaviour
 {
     public TMP_Text currentWeaponText;
     public TMP_Text currentAmmoText;
     public TMP_Text ammoLeftText;
+    public Image weaponIcon;
 
     public GameObject player;
 
@@ -31,6 +33,7 @@ public class WeaponDispla : MonoBehaviour
         currentWeaponText.text = actions.currentWeapon.weaponName;
         currentAmmoText.text = actions.currentWeapon.ammo.currentAmmo.ToString();
         ammoLeftText.text = actions.currentWeapon.ammo.extraAmmo.ToString();
+        weaponIcon.sprite = actions.currentWeapon.weaponIcon;
     }
 
 

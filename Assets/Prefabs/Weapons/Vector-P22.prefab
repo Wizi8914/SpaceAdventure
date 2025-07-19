@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Vector-P22
+  weaponIcon: {fileID: 21300000, guid: 5f76dc8c2149fdd4995024fc295553f3, type: 3}
   fireRate: 0.5
   semiAutomatic: 1
   isBurstFire: 1

@@ -5159,6 +5159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: AR-181
+  weaponIcon: {fileID: 21300000, guid: 02c7a3b0f8b584a409957238f98bcd54, type: 3}
   fireRate: 0.2
   semiAutomatic: 0
   isBurstFire: 0

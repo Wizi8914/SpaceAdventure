@@ -1,11 +1,13 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
 public class WeaponManager : MonoBehaviour
 {
     [Header("Weapon Settings")]
     public string weaponName;
+    public Sprite weaponIcon;
     
     [Header("Fire Rate")]
     [SerializeField] float fireRate;
