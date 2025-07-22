@@ -10,13 +10,15 @@ public class WeaponClassManager : MonoBehaviour
     ActionStateManager actions;
 
     public WeaponManager[] weapon;
+    public GameObject weaponHolder;
     int currentWeaponIndex;
     private RigBuilder rigBuilder;
+
+    public GameObject Test;
 
     private void Awake()
     {
         rigBuilder = GetComponent<RigBuilder>();
-
 
         currentWeaponIndex = 0;
         for (int i = 0; i < weapon.Length; i++)
@@ -25,6 +27,14 @@ public class WeaponClassManager : MonoBehaviour
             else weapon[i].gameObject.SetActive(false);
         }
     }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            AddNewWeapon(Test);
+        }
+    } 
 
     public void SetCurrentWeapon(WeaponManager weapon)
     {
@@ -72,5 +82,39 @@ public class WeaponClassManager : MonoBehaviour
     public void WeaponPulledOut()
     {
         actions.SwitchState(actions.Default);
+    }
+
+    public void AddNewWeapon(GameObject newWeapon)
+    {
+        GameObject weaponInstance = Instantiate(newWeapon);
+        weaponInstance.SetActive(false);
+
+        weaponInstance.transform.SetParent(weaponHolder.transform);
+
+
+        WeaponManager weaponManager = weaponInstance.GetComponent<WeaponManager>();
+
+        weaponInstance.GetComponent<WeaponRecoil>().crosshair = GetComponentInParent<AimStateManager>().crosshair;
+
+        WeaponManager[] newWeapons = new WeaponManager[weapon.Length + 1];
+        for (int i = 0; i < weapon.Length; i++)
+        {
+            newWeapons[i] = weapon[i];
+        }
+        newWeapons[newWeapons.Length - 1] = weaponManager;
+        weapon = newWeapons;
+
+        weaponInstance.transform.localPosition = newWeapon.transform.position;
+        weaponInstance.transform.localRotation = newWeapon.transform.rotation;
+        weaponInstance.transform.localScale = newWeapon.transform.localScale;
+
+
+        // Equip the new weapon
+        currentWeaponIndex = weapon.Length - 1;
+        for (int i = 0; i < weapon.Length; i++)
+        {
+            weapon[i].gameObject.SetActive(i == currentWeaponIndex);
+        }
+        SetCurrentWeapon(weapon[currentWeaponIndex]);
     }
 }

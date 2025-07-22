@@ -8,7 +8,7 @@ public class WeaponRecoil : MonoBehaviour
     [SerializeField] float kickBackSpeed = 10f, returnSpeed = 20f;
     float currentRecoilPosition, finalRecoilPosition;
 
-    [SerializeField] Crosshair crosshair;
+    public Crosshair crosshair;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

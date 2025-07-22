@@ -5,9 +5,11 @@ public class DefaultState : ActionBaseState
 {
 
     public float scrollDireciton;
+    private WeaponClassManager weaponClassManager;
 
     public override void EnterState(ActionStateManager actions)
     {
+        weaponClassManager = actions.GetComponent<WeaponClassManager>();
     }
 
     public override void UpdateState(ActionStateManager actions)
@@ -23,6 +25,8 @@ public class DefaultState : ActionBaseState
         }
         else if (Input.mouseScrollDelta.y != 0)
         {
+            if (weaponClassManager.weapon.Length <= 1) return;
+
             scrollDireciton = Input.mouseScrollDelta.y;
             actions.SwitchState(actions.Swap);
         }

@@ -5,6 +5,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] public float health = 100f;
     RagdollManager ragdollManager;
     [HideInInspector] public bool isDead;
+    [SerializeField] private float timeToDie = 10f; // Time before the enemy is destroyed after death
     [SerializeField] public SphereCollider headCollider;
 
 
@@ -27,6 +28,6 @@ public class EnemyHealth : MonoBehaviour
     {
         ragdollManager.EnableRagdoll();
         Debug.Log($"{gameObject.name} has died.");
-        //Destroy(gameObject); // Destroy the enemy game object
+        Destroy(gameObject, timeToDie); // Destroy the enemy game object after a delay
     }
 }

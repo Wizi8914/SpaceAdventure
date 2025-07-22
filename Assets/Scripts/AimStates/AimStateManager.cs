@@ -28,7 +28,7 @@ public class AimStateManager : MonoBehaviour
     [HideInInspector] public Vector3 actualAimPosition;
     [SerializeField] float aimTransitionSpeed = 20f;
     [SerializeField] LayerMask aimMask;
-    [SerializeField] Crosshair crosshair;
+    [SerializeField] public Crosshair crosshair;
 
     float xFollowPosition;
     float yFollowPosition, ogYFollowPosition;
@@ -47,7 +47,7 @@ public class AimStateManager : MonoBehaviour
     MultiAimConstraint[] multiAims;
     WeightedTransform aimPositionWeightedTransform;
 
-    /*
+    
     private void Awake()
     {
         aimPosition = new GameObject().transform;
@@ -65,7 +65,7 @@ public class AimStateManager : MonoBehaviour
             multiAim.data.sourceObjects = data;
         }
     }
-    */
+    
 
     private void Start()
     {
