@@ -3,11 +3,24 @@ using Unity.Cinemachine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
     public Transform playerHead;
+    public Transform mainCamera;
 
     void Awake()
     {
-        Camera.main.gameObject.AddComponent<CinemachineBrain>();
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        mainCamera.gameObject.AddComponent<CinemachineBrain>();
     }
 
     void Start()

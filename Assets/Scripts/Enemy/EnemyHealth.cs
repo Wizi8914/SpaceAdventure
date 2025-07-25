@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -7,11 +8,16 @@ public class EnemyHealth : MonoBehaviour
     [HideInInspector] public bool isDead;
     [SerializeField] private float timeToDie = 10f; // Time before the enemy is destroyed after death
     [SerializeField] public SphereCollider headCollider;
-
+    [SerializeField] public Canvas canvas; // UI Slider to display health
+    private Slider healthBar;
 
     void Start()
     {
         ragdollManager = GetComponent<RagdollManager>();
+        healthBar = canvas.GetComponentInChildren<Slider>();
+        healthBar.maxValue = health;
+        UpdateHealthBar();
+        
     }
 
     public void TakeDamage(float damage)
@@ -20,14 +26,19 @@ public class EnemyHealth : MonoBehaviour
         {
             health -= damage;
             if (health <= 0f) EnemyDeath();
-            else Debug.Log($"{gameObject.name} took {damage} damage. Remaining health: {health}");
+            else UpdateHealthBar();
         }
-    } 
-    
+    }
+
     void EnemyDeath()
     {
         ragdollManager.EnableRagdoll();
-        Debug.Log($"{gameObject.name} has died.");
+        canvas.enabled = false; // Disable the health bar canvas
         Destroy(gameObject, timeToDie); // Destroy the enemy game object after a delay
+    }
+    
+    void UpdateHealthBar()
+    {
+        healthBar.value = health;
     }
 }

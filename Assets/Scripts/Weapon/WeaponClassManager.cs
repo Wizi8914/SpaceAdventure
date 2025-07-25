@@ -14,8 +14,6 @@ public class WeaponClassManager : MonoBehaviour
     int currentWeaponIndex;
     private RigBuilder rigBuilder;
 
-    public GameObject Test;
-
     private void Awake()
     {
         rigBuilder = GetComponent<RigBuilder>();
@@ -27,14 +25,6 @@ public class WeaponClassManager : MonoBehaviour
             else weapon[i].gameObject.SetActive(false);
         }
     }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            AddNewWeapon(Test);
-        }
-    } 
 
     public void SetCurrentWeapon(WeaponManager weapon)
     {
