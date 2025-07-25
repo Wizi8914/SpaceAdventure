@@ -10,11 +10,13 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] public SphereCollider headCollider;
     [SerializeField] public Canvas canvas; // UI Slider to display health
     private Slider healthBar;
+    private HealBarCut healBarCut;
 
     void Start()
     {
         ragdollManager = GetComponent<RagdollManager>();
         healthBar = canvas.GetComponentInChildren<Slider>();
+        healBarCut = healthBar.GetComponent<HealBarCut>();
         healthBar.maxValue = health;
         UpdateHealthBar();
         
@@ -24,9 +26,14 @@ public class EnemyHealth : MonoBehaviour
     {
         if (health > 0f)
         {
+            float beforeDamageFillAmount = healthBar.normalizedValue;
             health -= damage;
             if (health <= 0f) EnemyDeath();
-            else UpdateHealthBar();
+            else
+            {
+                UpdateHealthBar();
+                healBarCut.UpdateHealBar(beforeDamageFillAmount, healthBar.normalizedValue);
+            }  
         }
     }
 

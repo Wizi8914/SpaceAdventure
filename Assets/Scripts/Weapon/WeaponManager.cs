@@ -125,7 +125,7 @@ public class WeaponManager : MonoBehaviour
         TriggerMuzzleFlash();
         ammo.currentAmmo--;
 
-        for (int i = 0; i < bulletsPerShot; i++)
+        for (int i = 0; i < (isBurstFire ? 1 : bulletsPerShot); i++)
         {
 
             GameObject currentBullet = Instantiate(bulletPrefab, bulletSpawnLocation.position, bulletSpawnLocation.rotation);

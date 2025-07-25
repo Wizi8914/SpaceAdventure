@@ -63,7 +63,7 @@ MonoBehaviour:
   bulletsPerShot: 3
   bulletVelocity: 500
   bulletHoleSizeMultiplier: 0.7
-  damage: 4
+  damage: 5
   fireSound: {fileID: 8300000, guid: 47cc74480974d504db65d64490512a08, type: 3}
   noAmmoSound: {fileID: 8300000, guid: 588b7fe11ed4bf14ea16450e9cd59599, type: 3}
   audioSource: {fileID: 0}
