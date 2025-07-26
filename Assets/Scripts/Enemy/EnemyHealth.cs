@@ -22,7 +22,7 @@ public class EnemyHealth : MonoBehaviour
         
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, bool isHeadShot = false)
     {
         if (health > 0f)
         {
@@ -32,7 +32,7 @@ public class EnemyHealth : MonoBehaviour
             else
             {
                 UpdateHealthBar();
-                healBarCut.UpdateHealBar(beforeDamageFillAmount, healthBar.normalizedValue);
+                healBarCut.UpdateHealBar(beforeDamageFillAmount, healthBar.normalizedValue, isHeadShot);
             }  
         }
     }

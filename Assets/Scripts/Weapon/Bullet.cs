@@ -35,7 +35,7 @@ public class Bullet : MonoBehaviour
             if (enemy.headCollider.bounds.Contains(collision.contacts[0].point))
             {
                 if (!enemy.isDead) playHitSound(true);
-                enemy.TakeDamage(weapon.damage * 2);
+                enemy.TakeDamage(weapon.damage * 2, true);
 
             }
             else

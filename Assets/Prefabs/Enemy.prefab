@@ -2069,7 +2069,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 2.108}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_SizeDelta: {x: 110, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &4091283039236880395
 Canvas:
@@ -3307,9 +3307,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e56dbf19472ab0e489c1e30e0253aed0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 20
+  fallSpeed: 30
   alphaFadeSpeed: 4
-  bumpHeight: 4
+  bumpHeight: 3
   bumpDuration: 0.2
 --- !u!1 &7445311127374086362
 GameObject:
