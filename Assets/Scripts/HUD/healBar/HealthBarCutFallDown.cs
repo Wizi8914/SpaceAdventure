@@ -7,14 +7,18 @@ public class HealthBarCutFallDown : MonoBehaviour
     private float fallDownTimer;
     [SerializeField] float fallSpeed = 10f;
     [SerializeField] float alphaFadeSpeed = 5f;
-    [SerializeField] float bumpHeight = 20f;      // Hauteur du bump
-    [SerializeField] float bumpDuration = 0.2f;   // Durée du bump
+    [SerializeField] float bumpHeight = 20f;
+    [SerializeField] float bumpDuration = 0.2f;
     private float fadeTimer;
     private Image image;
     private Color color;
 
     private float verticalVelocity;
     private float gravity;
+
+    private Vector2 bumpDirection;
+    private float angularVelocity;
+    private float currentAngle;
 
     private void Awake()
     {
@@ -25,6 +29,13 @@ public class HealthBarCutFallDown : MonoBehaviour
         verticalVelocity = (2f * bumpHeight) / bumpDuration;
         gravity = (2f * bumpHeight) / (bumpDuration * bumpDuration);
 
+        float angle = Random.Range(-15f, 15f);
+        float rad = angle * Mathf.Deg2Rad;
+        bumpDirection = new Vector2(Mathf.Sin(rad), 1f).normalized;
+
+        angularVelocity = Random.Range(-30f, 30f);
+        currentAngle = 0f;
+
         fallDownTimer = bumpDuration;
         fadeTimer = 0.5f;
     }
@@ -34,12 +45,12 @@ public class HealthBarCutFallDown : MonoBehaviour
         fallDownTimer -= Time.deltaTime;
         if (fallDownTimer > 0f)
         {
-            rectTransform.anchoredPosition += Vector2.up * verticalVelocity * Time.deltaTime;
+            rectTransform.anchoredPosition += bumpDirection * verticalVelocity * Time.deltaTime;
             verticalVelocity -= gravity * Time.deltaTime;
         }
         else
         {
-            rectTransform.anchoredPosition += Vector2.down * fallSpeed * Time.deltaTime;
+            rectTransform.anchoredPosition += new Vector2(bumpDirection.x, -1f).normalized * fallSpeed * Time.deltaTime;
 
             fadeTimer -= Time.deltaTime;
             if (fadeTimer <= 0f)
@@ -52,5 +63,8 @@ public class HealthBarCutFallDown : MonoBehaviour
                 }
             }
         }
+
+        currentAngle += angularVelocity * Time.deltaTime;
+        rectTransform.localRotation = Quaternion.Euler(0f, 0f, currentAngle);
     }
 }
