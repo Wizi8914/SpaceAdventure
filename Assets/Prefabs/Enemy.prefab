@@ -3309,7 +3309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallSpeed: 30
   alphaFadeSpeed: 4
-  bumpHeight: 3
+  bumpHeight: 5
   bumpDuration: 0.2
 --- !u!1 &7445311127374086362
 GameObject:

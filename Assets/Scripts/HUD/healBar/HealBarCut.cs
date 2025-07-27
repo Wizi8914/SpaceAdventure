@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class HealBarCut : MonoBehaviour
 {
-    private const float barWidth = 100f; // Width of the health bar
+    public float barWidth = 100f; // Width of the health bar
     public Image barImage;
 
     [SerializeField] private Transform damagedBarTemplate;
