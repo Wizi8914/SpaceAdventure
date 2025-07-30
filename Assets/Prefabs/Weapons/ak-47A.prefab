@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a8b3277ac74bc8408f5e960ab14bf92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultBloomAngle: 3
+  defaultBloomAngle: 1.5
   walkBloomMultiplier: 1.5
   crouchBloomMultiplier: 0.5
   sprintBloomMultiplier: 2

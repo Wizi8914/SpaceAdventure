@@ -4,6 +4,7 @@ using Unity.Cinemachine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    public GameObject player;
     public Transform playerHead;
     public Transform mainCamera;
 

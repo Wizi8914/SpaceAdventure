@@ -29,6 +29,7 @@ public class AimStateManager : MonoBehaviour
     [SerializeField] float aimTransitionSpeed = 20f;
     [SerializeField] LayerMask aimMask;
     [SerializeField] public Crosshair crosshair;
+    public float minAimDistance = 1.0f;
 
     float xFollowPosition;
     float yFollowPosition, ogYFollowPosition;
@@ -117,13 +118,24 @@ public class AimStateManager : MonoBehaviour
         }
 
 
+        
+
         Vector2 screenCenter = new Vector2(Screen.width / 2, Screen.height / 2);
         Ray ray = Camera.main.ScreenPointToRay(screenCenter);
 
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, aimMask))
         {
-            aimPosition.position = Vector3.Lerp(aimPosition.position, hit.point, aimTransitionSpeed * Time.deltaTime);
-            crosshair.SetCrosshairColor(hit.collider.GetComponentInParent<EnemyHealth>()?.isDead == false ? crosshair.enemyColor : crosshair.normalColor);
+            var enemy = hit.collider.GetComponentInParent<EnemyHealth>();
+            
+            if (hit.distance < minAimDistance && (enemy == null || enemy.isDead))
+            {
+                aimPosition.position = ray.GetPoint(minAimDistance);
+            }
+            else
+            {
+                aimPosition.position = Vector3.Lerp(aimPosition.position, hit.point, aimTransitionSpeed * Time.deltaTime);
+            }
+            crosshair.SetCrosshairColor(enemy != null && enemy.isDead == false ? crosshair.enemyColor : crosshair.normalColor);
         }
         else
         {

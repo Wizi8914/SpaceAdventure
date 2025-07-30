@@ -11,12 +11,14 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] public Canvas canvas; // UI Slider to display health
     private Slider healthBar;
     private HealBarCut healBarCut;
+    private Animator animator;
 
     void Start()
     {
         ragdollManager = GetComponent<RagdollManager>();
         healthBar = canvas.GetComponentInChildren<Slider>();
         healBarCut = healthBar.GetComponent<HealBarCut>();
+        animator = GetComponent<Animator>();
         healthBar.maxValue = health;
         UpdateHealthBar();
         
@@ -39,6 +41,7 @@ public class EnemyHealth : MonoBehaviour
 
     void EnemyDeath()
     {
+        animator.enabled = false;
         ragdollManager.EnableRagdoll();
         canvas.enabled = false; // Disable the health bar canvas
         Destroy(gameObject, timeToDie); // Destroy the enemy game object after a delay
