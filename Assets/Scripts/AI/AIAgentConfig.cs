@@ -10,6 +10,7 @@ public class AIAgentConfig : ScriptableObject
     [Header("AI Behavior Settings")]
     public float maxTime = 1f;
     public float maxDistance = 1f;
+    public float minSeenTime = 1f; // Minimum time the player must be seen to trigger a response
     public float maxSightDistance = 10f; // Maximum distance for AI to see the player
 
     [Header("Weapon Settings")]

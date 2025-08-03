@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 //using System.Collections.Generic;
 
 public class DetectionStateManager : MonoBehaviour
@@ -6,14 +7,21 @@ public class DetectionStateManager : MonoBehaviour
     [SerializeField] float lookDistance = 30f, fov = 120f;
     [SerializeField] Transform enemyEyes;
     Transform playerHead;
-    GameManager gameManager;
+    public Transform aimPosition;
+
+    public MultiAimConstraint HeadAim;
+    public MultiAimConstraint BodyAim;
+    private float HeadAimWeight;
+    private float BodyAimWeight;
+
+    [SerializeField] float transitionSpeed = 5f; // Ajout du paramètre
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        gameManager = FindFirstObjectByType<GameManager>();
-        playerHead = gameManager.playerHead;
-       
+        playerHead = GameManager.Instance.playerHead;
+        HeadAimWeight = HeadAim.weight;
+        BodyAimWeight = BodyAim.weight;
     }
 
     // Update is called once per frame
@@ -26,11 +34,20 @@ public class DetectionStateManager : MonoBehaviour
     {
         if (PlayerSeen())
         {
-            Debug.Log("Player seen!");
+            // Transition vers le joueur vu
+            HeadAim.weight = Mathf.Lerp(HeadAim.weight, HeadAimWeight, Time.fixedDeltaTime * transitionSpeed);
+            BodyAim.weight = Mathf.Lerp(BodyAim.weight, BodyAimWeight, Time.fixedDeltaTime * transitionSpeed);
+            aimPosition.position = Vector3.Lerp(aimPosition.position, playerHead.position, Time.fixedDeltaTime * transitionSpeed);
         }
         else
         {
-            Debug.Log("Player not seen.");
+            // Transition vers le joueur non vu (regarde devant)
+            HeadAim.weight = Mathf.Lerp(HeadAim.weight, 0f, Time.fixedDeltaTime * transitionSpeed);
+            BodyAim.weight = Mathf.Lerp(BodyAim.weight, 0f, Time.fixedDeltaTime * transitionSpeed);
+            Vector3 forwardPos = enemyEyes.parent.position + enemyEyes.parent.forward * lookDistance;
+            aimPosition.position = Vector3.Lerp(aimPosition.position, forwardPos, Time.fixedDeltaTime * transitionSpeed);
+
+            Debug.DrawLine(enemyEyes.position, aimPosition.position, Color.green);
         }
     }
 

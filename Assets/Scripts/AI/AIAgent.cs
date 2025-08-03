@@ -12,6 +12,7 @@ public class AIAgent : MonoBehaviour
     [HideInInspector] public RagdollManager ragdollManager;
     [HideInInspector] public Animator animator;
     [HideInInspector] public EnemyWeaponClassManager weaponClassManager;
+    [HideInInspector] public DetectionStateManager detectionStateManager;
 
     void Start()
     {
@@ -25,6 +26,8 @@ public class AIAgent : MonoBehaviour
 
         ragdollManager = GetComponent<RagdollManager>();
         animator = GetComponent<Animator>();
+
+        detectionStateManager = GetComponent<DetectionStateManager>();
 
         playerTransform = GameManager.Instance.player.transform;
 

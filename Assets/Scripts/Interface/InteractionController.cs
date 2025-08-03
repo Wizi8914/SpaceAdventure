@@ -24,8 +24,6 @@ public class InteractionController : MonoBehaviour
     {
         IInteractable interactable = other.GetComponent<IInteractable>();
 
-        Debug.Log($"OnTriggerEnter: {other.name} - Interactable: {interactable != null}");
-
         if (interactable != null)
         {
             currentTargetInteractable = interactable;

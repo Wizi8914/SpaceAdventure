@@ -15,6 +15,7 @@ MonoBehaviour:
   maxHealth: 100
   maxTime: 1
   maxDistance: 1
+  minSeenTime: 5
   maxSightDistance: 3
-  Weapon: {fileID: 521188321454671827, guid: 4837ed5881d506c449b00e80b24c68c3, type: 3}
+  weaponPrefab: {fileID: 521188321454671827, guid: f39b34a7af0da064e88ad2bc06281e1f, type: 3}
   TimeToDie: 5

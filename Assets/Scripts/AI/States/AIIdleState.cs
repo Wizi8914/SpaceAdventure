@@ -3,6 +3,8 @@ using UnityEngine.AI;
 
 public class AIIdleState : AIState
 {
+    private float seenTimer;
+
     public AIStateID GetStateID()
     {
         return AIStateID.Idle;
@@ -13,6 +15,20 @@ public class AIIdleState : AIState
     }
     public void UpdateState(AIAgent agent)
     {
+        // Check if the player is seen
+        if (agent.detectionStateManager.PlayerSeen())
+        {
+            seenTimer += Time.deltaTime;
+            if (seenTimer > agent.config.minSeenTime)
+            {
+                agent.stateMachine.ChangeState(AIStateID.ChasePlayer);
+            }
+        }
+        else
+        {
+            seenTimer = 0f;
+        }
+
         Vector3 playerDirection = agent.playerTransform.position - agent.transform.position;
         if (playerDirection.magnitude > agent.config.maxSightDistance) return;
 
@@ -25,6 +41,7 @@ public class AIIdleState : AIState
         {
             agent.stateMachine.ChangeState(AIStateID.ChasePlayer);
         }
+
     }
 
     public void ExitState(AIAgent agent)

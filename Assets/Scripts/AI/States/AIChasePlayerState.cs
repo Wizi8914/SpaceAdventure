@@ -36,8 +36,9 @@ public class AIChasePlayerState : AIState
                 }
             }
             timer = agent.config.maxTime;
-
         }
+
+        
     }
 
     public void ExitState(AIAgent agent)
