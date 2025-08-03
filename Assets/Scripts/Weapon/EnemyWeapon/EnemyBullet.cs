@@ -2,17 +2,14 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class Bullet : MonoBehaviour
+public class EnemyBullet : MonoBehaviour
 {
     [SerializeField] float lifeTime;
-    [HideInInspector] public WeaponManager weapon;
+    [HideInInspector] public EnemyWeaponManager weapon;
     [HideInInspector] public Vector3 direction;
     [HideInInspector] public float holeSizeMultiplier;
 
     [SerializeField] private GameObject bulletImpactPrefab;
-    [SerializeField] private AudioClip ennemyHitSound;
-    [SerializeField] private AudioClip ennemyHeadShotSound;
-    [HideInInspector] public AudioSource audioSource;
 
 
     ParticleSystem bulletParticle;
@@ -21,35 +18,20 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         bulletParticle = GetComponent<ParticleSystem>();
-        audioSource = GetComponent<AudioSource>();
         Destroy(this.gameObject, lifeTime);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponentInParent<EnemyHealth>())
+        if (collision.gameObject.GetComponentInParent<playerHealth>())
         {
-            EnemyHealth enemy = collision.gameObject.GetComponentInParent<EnemyHealth>();
+            playerHealth player = collision.gameObject.GetComponentInParent<playerHealth>();
 
-            // Head Shot
-            if (enemy.headCollider.bounds.Contains(collision.contacts[0].point))
-            {
-                if (!enemy.isDead) playHitSound(true);
-                enemy.TakeDamage(weapon.damage * 2, true);
 
-            }
-            else
-            {
-                if (!enemy.isDead) playHitSound(false);
-                enemy.TakeDamage(weapon.damage);
-            }
-
-            if (enemy.health <= 0f && enemy.isDead == false)
+            if (player.currentHealth <= 0f && player.isDead == false)
             {
                 Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
                 rb.AddForce(direction * weapon.ennemyKickBackForce, ForceMode.Impulse);
-
-                enemy.isDead = true;
             }
             
             SpawnImpactEffect(collision.contacts[0].point, Quaternion.LookRotation(collision.contacts[0].normal), false);
@@ -76,15 +58,5 @@ public class Bullet : MonoBehaviour
         if (!isASurfaceImpact) decal.enabled = false;
         impact.transform.position -= impact.transform.forward / 100;
     }
-    
-    private void playHitSound(bool isHeadShot = false)
-    {
-        gameObject.GetComponent<Collider>().enabled = false;
-        gameObject.GetComponent<MeshRenderer>().enabled = false;
-        gameObject.GetComponent<TrailRenderer>().enabled = false;
-        audioSource.PlayOneShot(isHeadShot ? ennemyHeadShotSound : ennemyHitSound);
-        Destroy(this.gameObject, isHeadShot ? ennemyHeadShotSound.length : ennemyHitSound.length);
-    }
-
 }
 

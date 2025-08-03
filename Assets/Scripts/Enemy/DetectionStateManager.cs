@@ -52,8 +52,6 @@ public class DetectionStateManager : MonoBehaviour
         {
             if (hit.transform == null) return false;
 
-            Debug.Log($"Hit: {hit.transform.name}");
-
             if (hit.transform.CompareTag("Player"))
             {
                 Debug.DrawLine(enemyEyes.position, hit.point, Color.blue);

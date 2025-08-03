@@ -10,6 +10,8 @@ public class playerHealth : MonoBehaviour
     private Slider healthBar;
     private HealBarCut healBarCut;
 
+    [HideInInspector] public bool isDead = false; // Flag to check if the player is dead
+
     void Start()
     {
         healthBar = canvas.GetComponentInChildren<Slider>();

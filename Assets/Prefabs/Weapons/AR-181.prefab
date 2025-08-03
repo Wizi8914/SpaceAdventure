@@ -5175,7 +5175,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   ammo: {fileID: 0}
   lightReturnSpeed: 20
-  ennemyKickBackForce: 100
+  ennemyKickBackForce: 60
   leftHandTarget: {fileID: 2334952949783112041}
   leftHandHint: {fileID: 1236730656236897623}
 --- !u!82 &6959904683171210775

@@ -3,25 +3,27 @@ using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] public float health = 100f;
-    RagdollManager ragdollManager;
+    [HideInInspector] public float health = 100f;
+
+    [HideInInspector] public AIAgent agent; // Reference to the AI agent
     [HideInInspector] public bool isDead;
-    [SerializeField] private float timeToDie = 10f; // Time before the enemy is destroyed after death
+    // Time before the enemy is destroyed after death
     [SerializeField] public SphereCollider headCollider;
     [SerializeField] public Canvas canvas; // UI Slider to display health
     private Slider healthBar;
     private HealBarCut healBarCut;
-    private Animator animator;
+    
 
     void Start()
     {
-        ragdollManager = GetComponent<RagdollManager>();
+        agent = GetComponent<AIAgent>();
         healthBar = canvas.GetComponentInChildren<Slider>();
         healBarCut = healthBar.GetComponent<HealBarCut>();
-        animator = GetComponent<Animator>();
-        healthBar.maxValue = health;
+        agent.config.maxHealth = health; // Set the max health in the agent config
+        healthBar.maxValue = health; // Initialize the health bar value
+        healthBar.value = health; // Set the initial health bar value
+
         UpdateHealthBar();
-        
     }
 
     public void TakeDamage(float damage, bool isHeadShot = false)
@@ -41,10 +43,10 @@ public class EnemyHealth : MonoBehaviour
 
     void EnemyDeath()
     {
-        animator.enabled = false;
-        ragdollManager.EnableRagdoll();
+
+        agent.stateMachine.ChangeState(AIStateID.Death);
         canvas.enabled = false; // Disable the health bar canvas
-        Destroy(gameObject, timeToDie); // Destroy the enemy game object after a delay
+        Destroy(gameObject, agent.config.TimeToDie);
     }
     
     void UpdateHealthBar()
