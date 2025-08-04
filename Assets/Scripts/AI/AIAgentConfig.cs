@@ -13,6 +13,13 @@ public class AIAgentConfig : ScriptableObject
     public float minSeenTime = 1f; // Minimum time the player must be seen to trigger a response
     public float maxSightDistance = 10f; // Maximum distance for AI to see the player
 
+    [Header("Detection Settings")]
+    public float minAttackDistance = 2f; // Minimum distance for the AI to start attacking
+    public float maxAttackDistance = 5f; // Maximum distance for the AI to consider
+    public float maxChaseDistance = 10f; // Maximum distance for the AI to chase the player
+    public float maxChaseTime = 5f; // Maximum time the AI will chase the player
+    public float maxChaseDurationWithoutVision = 3f; // Maximum time the AI will chase the player without seeing them
+
     [Header("Weapon Settings")]
     public GameObject weaponPrefab; //
 

@@ -17,17 +17,17 @@ public class EnemyWeaponManager : MonoBehaviour
 
     [Header("Bullet Properties")]
     [SerializeField] GameObject bulletPrefab;
-    [SerializeField] Transform bulletSpawnLocation;
+    [SerializeField] public Transform bulletSpawnLocation;
     [SerializeField] int bulletsPerShot;
     [SerializeField] float bulletVelocity;
     [SerializeField] float bulletHoleSizeMultiplier;
     public float damage = 10;
 
+    public float inaccuracy = 2; // How much the bullet can deviate from the target direction
+
     [SerializeField] AudioClip fireSound;
-    [SerializeField] AudioClip noAmmoSound;
     [HideInInspector] public AudioSource audioSource;
     [HideInInspector] public WeaponAmmo ammo;
-    WeaponBloom bloom;
     Light muzzleFlashLight;
     ParticleSystem muzzleFlashPArticle;
     float lightIntensity;
@@ -41,7 +41,8 @@ public class EnemyWeaponManager : MonoBehaviour
     void Start()
     {
         ammo = GetComponent<WeaponAmmo>();
-        bloom = GetComponent<WeaponBloom>();
+        audioSource = GetComponent<AudioSource>();
+        bulletSpawnLocation = transform.Find("BulletSpawnPos");
         muzzleFlashLight = bulletSpawnLocation.GetComponentInChildren<Light>();
         lightIntensity = muzzleFlashLight.intensity;
         muzzleFlashLight.intensity = 0f;
@@ -50,58 +51,60 @@ public class EnemyWeaponManager : MonoBehaviour
     }
 
     // Update is called once per frame
+    
     void Update()
     {
-        if (ShouldFire())
-        {
-            if (isBurstFire && !isBursting)
-            {
-                StartCoroutine(BurstFire());
-            }
-            else
-            {
-                Fire();
-            }
-        }
 
-        if (ammo.currentAmmo <= 0 && Input.GetKeyDown(KeyCode.Mouse0))
+        // Debug.Log($"Fire Rate Timer: {fireRateTimer}, Fire Rate: {fireRate}");
+        // Debug.Log($"Delta time: {Time.deltaTime}");
+
+        /*
+        if (isBurstFire && !isBursting)
         {
-            audioSource.PlayOneShot(noAmmoSound);
+            StartCoroutine(BurstFire());
         }
+        else
+        {
+            Fire();
+        }
+        */
 
         muzzleFlashLight.intensity = Mathf.Lerp(muzzleFlashLight.intensity, 0f, lightReturnSpeed * Time.deltaTime);
     }
-
-    bool ShouldFire()
+    
+    public bool ShouldFire()
     {
         fireRateTimer += Time.deltaTime;
 
-        if (fireRateTimer < fireRate) return false;
         if (ammo.currentAmmo <= 0) return false;
-        return false;
-
+        if (fireRateTimer < fireRate) return false;
+        return true;
     }
 
-    void Fire()
+    public void Fire(Transform target = null)
     {
         fireRateTimer = 0f;
-        bulletSpawnLocation.LookAt(GameManager.Instance.player.transform.position);
-        bulletSpawnLocation.localEulerAngles = bloom.bloomAngle(bulletSpawnLocation);
+        bulletSpawnLocation.LookAt(target ? target.position : GameManager.Instance.player.transform.position);
+        bulletSpawnLocation.localEulerAngles = new Vector3(Random.Range(-inaccuracy, inaccuracy), Random.Range(-inaccuracy, inaccuracy), 0);
 
         // Play fire sound
         audioSource.pitch = Random.Range(0.85f, 1.1f);
         audioSource.volume = Random.Range(0.8f, 1f);
-        //audioSource.time = Random.Range(0f, fireSound.length);
         audioSource.PlayOneShot(fireSound);
 
         TriggerMuzzleFlash();
+
+        Debug.Log($"Current Ammo: {bulletSpawnLocation.position}");
+
         ammo.currentAmmo--;
 
         for (int i = 0; i < (isBurstFire ? 1 : bulletsPerShot); i++)
         {
 
+
             GameObject currentBullet = Instantiate(bulletPrefab, bulletSpawnLocation.position, bulletSpawnLocation.rotation);
             EnemyBullet bullet = currentBullet.GetComponent<EnemyBullet>();
+
             bullet.holeSizeMultiplier = bulletHoleSizeMultiplier;
 
             bullet.weapon = this; // Assign the weapon to the bullet

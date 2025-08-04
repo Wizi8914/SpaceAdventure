@@ -37,7 +37,13 @@ public class EnemyHealth : MonoBehaviour
             {
                 UpdateHealthBar();
                 healBarCut.UpdateHealBar(beforeDamageFillAmount, healthBar.normalizedValue, isHeadShot);
-            }  
+            }
+        }
+
+        // If the agent is in idle state and receives damage, change to chase state
+        if (agent.stateMachine.currentState == AIStateID.Idle)
+        {
+            agent.stateMachine.ChangeState(AIStateID.ChasePlayer);
         }
     }
 

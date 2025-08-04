@@ -36,6 +36,7 @@ public class EnemyWeaponClassManager : MonoBehaviour
         weaponMeshInstance.GetComponent<BoxCollider>().enabled = true;
 
         weaponMeshInstance.AddComponent<Rigidbody>();
+        weaponMeshInstance.GetComponent<Rigidbody>().AddForce(Vector3.up * 5f, ForceMode.Impulse);
         Destroy(weaponMeshInstance, despawnTime);
     }
 
@@ -57,13 +58,14 @@ public class EnemyWeaponClassManager : MonoBehaviour
 
     public void UpdateWeapon()
     {
-        weaponManager = weaponPrefab.GetComponent<EnemyWeaponManager>();
 
         weaponMeshInstance = Instantiate(weaponPrefab, weaponHolder);
+        weaponManager = weaponMeshInstance.GetComponent<EnemyWeaponManager>();
 
         weaponMeshInstance.transform.localPosition = weaponPrefab.transform.localPosition;
         weaponMeshInstance.transform.localRotation = weaponPrefab.transform.localRotation;
         weaponMeshInstance.transform.localScale = weaponPrefab.transform.localScale;
+        
 
         updateLeftHandIK();
     }

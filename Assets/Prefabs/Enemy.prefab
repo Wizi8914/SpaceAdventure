@@ -313,12 +313,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 434461007998499614}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.158, z: 0.162}
+  m_LocalRotation: {x: 0.00000060722215, y: -0.0000014752146, z: 0.00004725523, w: 1}
+  m_LocalPosition: {x: -0.00006208988, y: 1.7697518, z: 0.14506419}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6608381787856320560}
+  m_Father: {fileID: 2314840420613749240}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &630110265905048536
 GameObject:
@@ -527,7 +527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c430f382484144e925c097c2d33cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 0.3
+  m_Weight: 1
   m_Data:
     m_ConstrainedObject: {fileID: 6334384117050393588}
     m_SourceObjects:
@@ -1418,6 +1418,7 @@ Transform:
   - {fileID: 4666373871835363092}
   - {fileID: 7456482581975530339}
   - {fileID: 3287548560993451293}
+  - {fileID: 344335747497962367}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6196241552586502562
@@ -1462,12 +1463,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookDistance: 30
-  fov: 120
+  fov: 170
   enemyEyes: {fileID: 344335747497962367}
+  isAIAgent: 1
   aimPosition: {fileID: 3287548560993451293}
   HeadAim: {fileID: 4579731201422017823}
   BodyAim: {fileID: 4394635035209217567}
-  transitionSpeed: 5
+  raycastMask:
+    serializedVersion: 2
+    m_Bits: 503
+  transitionSpeed: 10
 --- !u!95 &1868321777938558918
 Animator:
   serializedVersion: 7
@@ -1515,19 +1520,19 @@ NavMeshAgent:
   m_GameObject: {fileID: 2875091363969091190}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.35
   m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 720
-  m_StoppingDistance: 1
+  m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 0
+  m_ObstacleAvoidanceType: 2
 --- !u!114 &2524245611691113250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3522,7 +3527,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8228646446082580158}
-  - {fileID: 344335747497962367}
   m_Father: {fileID: 1049681287895469817}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &4884921250280696602

@@ -23,25 +23,25 @@ public class EnemyBullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponentInParent<playerHealth>())
-        {
-            playerHealth player = collision.gameObject.GetComponentInParent<playerHealth>();
-
-
-            if (player.currentHealth <= 0f && player.isDead == false)
+        Debug.Log(collision.gameObject.transform.root.CompareTag("Player"));
+        
+        
+        if (collision.gameObject.transform.root.CompareTag("Player"))
             {
-                Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
-                rb.AddForce(direction * weapon.ennemyKickBackForce, ForceMode.Impulse);
-            }
-            
-            SpawnImpactEffect(collision.contacts[0].point, Quaternion.LookRotation(collision.contacts[0].normal), false);
+                playerHealth player = collision.gameObject.transform.root.gameObject.GetComponent<playerHealth>();
 
-            return;
-        }
-        else
-        {
-            SpawnImpactEffect(collision.contacts[0].point, Quaternion.LookRotation(collision.contacts[0].normal), true);
-        }
+                //Debug.Log($"Player hit by bullet: {player.currentHealth}");
+
+                player.TakeDamage(weapon.damage);
+
+                SpawnImpactEffect(collision.contacts[0].point, Quaternion.LookRotation(collision.contacts[0].normal), false);
+
+                return;
+            }
+            else
+            {
+                SpawnImpactEffect(collision.contacts[0].point, Quaternion.LookRotation(collision.contacts[0].normal), true);
+            }
 
         bulletParticle.Play();
         Destroy(this.gameObject);

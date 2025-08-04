@@ -8,11 +8,10 @@ public class AIAgent : MonoBehaviour
     public AIStateID initialState;
     [HideInInspector] public Transform playerTransform;
     [HideInInspector] public NavMeshAgent navMeshAgent;
-
     [HideInInspector] public RagdollManager ragdollManager;
     [HideInInspector] public Animator animator;
     [HideInInspector] public EnemyWeaponClassManager weaponClassManager;
-    [HideInInspector] public DetectionStateManager detectionStateManager;
+    [HideInInspector] public DetectionManager detectionStateManager;
 
     void Start()
     {
@@ -27,7 +26,7 @@ public class AIAgent : MonoBehaviour
         ragdollManager = GetComponent<RagdollManager>();
         animator = GetComponent<Animator>();
 
-        detectionStateManager = GetComponent<DetectionStateManager>();
+        detectionStateManager = GetComponent<DetectionManager>();
 
         playerTransform = GameManager.Instance.player.transform;
 
@@ -48,6 +47,7 @@ public class AIAgent : MonoBehaviour
         stateMachine.RegisterState(new AIDeathState());
         stateMachine.RegisterState(new AIChasePlayerState());
         stateMachine.RegisterState(new AIIdleState());
+        stateMachine.RegisterState(new AIAttackPlayerState());
         // Add other states as needed
     }
 }

@@ -15,7 +15,12 @@ MonoBehaviour:
   maxHealth: 100
   maxTime: 1
   maxDistance: 1
-  minSeenTime: 5
+  minSeenTime: 3
   maxSightDistance: 3
+  minAttackDistance: 4
+  maxAttackDistance: 7
+  maxChaseDistance: 20
+  maxChaseTime: 60
+  maxChaseDurationWithoutVision: 4
   weaponPrefab: {fileID: 521188321454671827, guid: f39b34a7af0da064e88ad2bc06281e1f, type: 3}
-  TimeToDie: 5
+  TimeToDie: 7

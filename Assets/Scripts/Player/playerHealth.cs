@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class playerHealth : MonoBehaviour
 {
-    public int currentHealth = 100; // Player's health
-    public int maxHealth = 100; // Maximum health the player can have
+    public float currentHealth = 100; // Player's health
+    public float maxHealth = 100; // Maximum health the player can have
     [SerializeField] public Canvas canvas; // UI Slider to display health
     private Slider healthBar;
     private HealBarCut healBarCut;
@@ -26,7 +26,7 @@ public class playerHealth : MonoBehaviour
 
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         if (currentHealth > 0f)
         {
@@ -41,7 +41,7 @@ public class playerHealth : MonoBehaviour
         }
     }
 
-    public void Heal(int amount)
+    public void Heal(float amount)
     {
         currentHealth += amount;
         if (currentHealth > maxHealth)
