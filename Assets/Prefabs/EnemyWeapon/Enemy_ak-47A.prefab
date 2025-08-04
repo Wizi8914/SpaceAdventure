@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eca928c578b78448aef576b039f3d58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 0.12
+  fireRate: 0.2
   semiAutomatic: 1
   isBurstFire: 0
   burstInterval: 0.08
@@ -61,13 +61,11 @@ MonoBehaviour:
   bulletsPerShot: 1
   bulletVelocity: 500
   bulletHoleSizeMultiplier: 1
-  damage: 10
+  damage: 5
   inaccuracy: 4
   fireSound: {fileID: 8300000, guid: 54ca3527771e19840a850cec91f9a354, type: 3}
   audioSource: {fileID: 7540439865053285980}
   ammo: {fileID: 0}
-  muzzleFlashLight: {fileID: 3981726188879228309}
-  muzzleFlashPArticle: {fileID: 5502305956592572075}
   lightReturnSpeed: 20
   ennemyKickBackForce: 100
   leftHandTarget: {fileID: 6924609078147325846}
@@ -611,8 +609,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.44477654, g: 0, b: 1, a: 1}
-      maxColor: {r: 0.8405217, g: 0.41568625, b: 0.94509804, a: 1}
+      minColor: {r: 1, g: 0, b: 0.08221531, a: 1}
+      maxColor: {r: 0.93542105, g: 0.2712012, b: 0.30072215, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5227,7 +5225,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 55b6a282fb614b642a5fe2ae3b7d111f, type: 2}
+  - {fileID: 2100000, guid: 3e948c1dfb5086e4c8e36e8f23e1d882, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5323,7 +5321,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
-  m_Color: {r: 0.42352942, g: 0, b: 0.7490196, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.12555265, a: 1}
   m_Intensity: 0
   m_Range: 10
   m_SpotAngle: 30
