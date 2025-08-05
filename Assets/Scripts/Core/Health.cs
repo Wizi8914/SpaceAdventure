@@ -13,7 +13,7 @@ public class Health : MonoBehaviour
         OnStart();
     }
 
-    public void TakeDamage(float damage, bool isHeadShot = false)
+    public void TakeDamage(float damage, bool isHeadShot = false, GameObject emitter = null)
     {
         if (isDead) return; // If already dead, do nothing
 
@@ -21,7 +21,7 @@ public class Health : MonoBehaviour
         if (currentHealth <= 0f)
         {
             currentHealth = 0f;
-            Die();
+            Die(emitter);
         }
         OnDamage(damage, isHeadShot);
     }
@@ -37,9 +37,9 @@ public class Health : MonoBehaviour
         OnHeal(amount);
     }
 
-    private void Die()
+    private void Die(GameObject killer = null)
     {
-        OnDeath();
+        OnDeath(killer);
     }
 
     protected virtual void OnStart()
@@ -47,7 +47,7 @@ public class Health : MonoBehaviour
 
     }
 
-    protected virtual void OnDeath()
+    protected virtual void OnDeath(GameObject killer)
     {
 
     }

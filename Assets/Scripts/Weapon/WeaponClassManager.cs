@@ -11,7 +11,7 @@ public class WeaponClassManager : MonoBehaviour
 
     public WeaponManager[] weapon;
     public GameObject weaponHolder;
-    int currentWeaponIndex;
+    [HideInInspector] public int currentWeaponIndex;
     private RigBuilder rigBuilder;
 
     private void Awake()
@@ -106,5 +106,17 @@ public class WeaponClassManager : MonoBehaviour
             weapon[i].gameObject.SetActive(i == currentWeaponIndex);
         }
         SetCurrentWeapon(weapon[currentWeaponIndex]);
+    }
+
+    public void DropWeapon(float despawnTime = 5f)
+    {
+        if (weapon[currentWeaponIndex] == null) return;
+
+        weapon[currentWeaponIndex].gameObject.transform.SetParent(null);
+        weapon[currentWeaponIndex].gameObject.GetComponent<BoxCollider>().enabled = true;
+
+        weapon[currentWeaponIndex].gameObject.AddComponent<Rigidbody>();
+        weapon[currentWeaponIndex].gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * 5f, ForceMode.Impulse);
+        Destroy(weapon[currentWeaponIndex].gameObject, despawnTime);
     }
 }

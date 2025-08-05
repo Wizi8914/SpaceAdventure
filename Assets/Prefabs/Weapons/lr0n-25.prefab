@@ -5120,13 +5120,14 @@ GameObject:
   - component: {fileID: 2009355478546973575}
   - component: {fileID: 2281969147517713476}
   - component: {fileID: 7209384260527561972}
+  - component: {fileID: 792138461738187039}
   m_Layer: 0
   m_Name: lr0n-25
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2200579875588371759
 Transform:
   m_ObjectHideFlags: 0
@@ -5327,6 +5328,27 @@ MonoBehaviour:
   crouchBloomMultiplier: 0.4
   sprintBloomMultiplier: 1
   adsBloomMultiplier: 0
+--- !u!65 &792138461738187039
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8424284163379095330}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5221767, y: 4.6552634, z: 13.532351}
+  m_Center: {x: -0.26108846, y: 0.32636616, z: 3.9163597}
 --- !u!1 &8940402319638851792
 GameObject:
   m_ObjectHideFlags: 0

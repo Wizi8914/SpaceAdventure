@@ -1,5 +1,6 @@
 using UnityEngine;
 using Unity.Cinemachine;
+using UnityEngine.Rendering;
 
 public class GameManager : MonoBehaviour
 {

@@ -14,13 +14,14 @@ GameObject:
   - component: {fileID: 7263172225121553482}
   - component: {fileID: 6609436376177531015}
   - component: {fileID: 2066864588240358759}
+  - component: {fileID: 7031774955116516206}
   m_Layer: 0
   m_Name: Vector-P22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1931152654569504543
 Transform:
   m_ObjectHideFlags: 0
@@ -221,6 +222,27 @@ MonoBehaviour:
   crouchBloomMultiplier: 0.5
   sprintBloomMultiplier: 2
   adsBloomMultiplier: 0.2
+--- !u!65 &7031774955116516206
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347277832849199661}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.3751348, y: 4.751344, z: 11.396587}
+  m_Center: {x: -0.18756725, y: 0.10718182, z: 2.8403072}
 --- !u!1 &506236073257159997
 GameObject:
   m_ObjectHideFlags: 0

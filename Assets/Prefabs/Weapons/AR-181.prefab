@@ -5120,6 +5120,7 @@ GameObject:
   - component: {fileID: 5012738775113051629}
   - component: {fileID: 3337628261705557819}
   - component: {fileID: 3497792792777352250}
+  - component: {fileID: 381714553205961962}
   m_Layer: 0
   m_Name: AR-181
   m_TagString: Untagged
@@ -5327,6 +5328,27 @@ MonoBehaviour:
   crouchBloomMultiplier: 0.5
   sprintBloomMultiplier: 2
   adsBloomMultiplier: 0.5
+--- !u!65 &381714553205961962
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6843329953793089145}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.6788653, y: 9.480895, z: 1.3255037}
+  m_Center: {x: -1.3470999, y: 3.088967, z: 0.16276228}
 --- !u!1 &7782579198217244232
 GameObject:
   m_ObjectHideFlags: 0

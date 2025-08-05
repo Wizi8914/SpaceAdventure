@@ -76,6 +76,10 @@ public class EnemyWeaponManager : MonoBehaviour
 
         if (ammo.currentAmmo <= 0) return false;
         if (fireRateTimer < fireRate) return false;
+
+        var playerHealth = GameManager.Instance.player.GetComponent<playerHealth>();
+        if (playerHealth != null && playerHealth.isDead) return false;
+
         return true;
     }
 
@@ -97,7 +101,6 @@ public class EnemyWeaponManager : MonoBehaviour
         for (int i = 0; i < (isBurstFire ? 1 : bulletsPerShot); i++)
         {
 
-
             GameObject currentBullet = Instantiate(bulletPrefab, bulletSpawnLocation.position, bulletSpawnLocation.rotation);
             EnemyBullet bullet = currentBullet.GetComponent<EnemyBullet>();
 
@@ -106,6 +109,7 @@ public class EnemyWeaponManager : MonoBehaviour
             bullet.weapon = this; // Assign the weapon to the bullet
 
             bullet.direction = bulletSpawnLocation.transform.forward;
+            bullet.parentObject = gameObject;
 
             Rigidbody rb = currentBullet.GetComponent<Rigidbody>();
 

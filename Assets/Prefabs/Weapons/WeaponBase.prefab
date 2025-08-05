@@ -5326,6 +5326,7 @@ GameObject:
   - component: {fileID: 7866840224621932148}
   - component: {fileID: 675552971970693700}
   - component: {fileID: 8924226562994933233}
+  - component: {fileID: 6465039821998621949}
   m_Layer: 0
   m_Name: WeaponBase
   m_TagString: Untagged
@@ -5364,6 +5365,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3918fefdd79992c4b9912e4821a6bfb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponName: 
+  weaponIcon: {fileID: 0}
   fireRate: 0.12
   semiAutomatic: 0
   isBurstFire: 0
@@ -5372,8 +5375,10 @@ MonoBehaviour:
   bulletSpawnLocation: {fileID: 7936878669062022226}
   bulletsPerShot: 1
   bulletVelocity: 500
+  bulletHoleSizeMultiplier: 0
   damage: 10
   fireSound: {fileID: 8300000, guid: 54ca3527771e19840a850cec91f9a354, type: 3}
+  noAmmoSound: {fileID: 0}
   audioSource: {fileID: 0}
   ammo: {fileID: 0}
   lightReturnSpeed: 20
@@ -5511,6 +5516,7 @@ MonoBehaviour:
   kickBackForce: -1
   kickBackSpeed: 10
   returnSpeed: 20
+  crosshair: {fileID: 0}
 --- !u!114 &8924226562994933233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5528,3 +5534,24 @@ MonoBehaviour:
   crouchBloomMultiplier: 0.5
   sprintBloomMultiplier: 2
   adsBloomMultiplier: 0.5
+--- !u!65 &6465039821998621949
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9161096952746768573}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.267949, y: 4.087124, z: 10.378364}
+  m_Center: {x: 0.026797783, y: 0.09447541, z: -0.13397485}

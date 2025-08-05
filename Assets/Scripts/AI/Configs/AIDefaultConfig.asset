@@ -23,4 +23,5 @@ MonoBehaviour:
   maxChaseTime: 60
   maxChaseDurationWithoutVision: 4
   weaponPrefab: {fileID: 521188321454671827, guid: f39b34a7af0da064e88ad2bc06281e1f, type: 3}
+  inaccuracy: 5
   TimeToDie: 7

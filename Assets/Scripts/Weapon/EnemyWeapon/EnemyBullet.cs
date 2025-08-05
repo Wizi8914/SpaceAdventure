@@ -8,8 +8,9 @@ public class EnemyBullet : MonoBehaviour
     [HideInInspector] public EnemyWeaponManager weapon;
     [HideInInspector] public Vector3 direction;
     [HideInInspector] public float holeSizeMultiplier;
-
     [SerializeField] private GameObject bulletImpactPrefab;
+
+    [HideInInspector] public GameObject parentObject;
 
 
     ParticleSystem bulletParticle;
@@ -27,7 +28,7 @@ public class EnemyBullet : MonoBehaviour
         {
             playerHealth player = collision.gameObject.transform.root.gameObject.GetComponent<playerHealth>();
 
-            player.TakeDamage(weapon.damage);
+            player.TakeDamage(weapon.damage, false, parentObject);
 
             if (player.currentHealth <= 0f && player.isDead == false)
             {

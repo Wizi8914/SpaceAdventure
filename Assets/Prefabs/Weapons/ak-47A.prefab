@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4565612433238010669}
   - component: {fileID: 4726370305628522048}
   - component: {fileID: 4211512403520197399}
+  - component: {fileID: 8958113928213821306}
   m_Layer: 0
   m_Name: ak-47A
   m_TagString: Untagged
@@ -222,6 +223,27 @@ MonoBehaviour:
   crouchBloomMultiplier: 0.5
   sprintBloomMultiplier: 2
   adsBloomMultiplier: 0.5
+--- !u!65 &8958113928213821306
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521188321454671827}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 4.108259, z: 10.324773}
+  m_Center: {x: 0, y: 0.053590536, z: -0.053588115}
 --- !u!1 &5433133724015971231
 GameObject:
   m_ObjectHideFlags: 0

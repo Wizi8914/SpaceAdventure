@@ -26,8 +26,17 @@ public class EnemyHealth : Health
         UpdateHealthBar();
     }
 
-    protected override void OnDeath()
+    protected override void OnDeath(GameObject killer)
     {
+        isDead = true;
+        GetComponent<Animator>().enabled = false; // Disable the animator
+        agent.ragdollManager.EnableRagdoll(); // Enable ragdoll physics
+
+        // Change the AI state to death
+        agent.navMeshAgent.enabled = false; // Disable navigation agent
+        agent.animator.enabled = false; // Disable animator to stop animations
+
+        // Notify the AI state machine of death
         agent.stateMachine.ChangeState(AIStateID.Death);
         canvas.enabled = false; // Disable the health bar canvas
         Destroy(gameObject, agent.config.TimeToDie); // Destroy the enemy after a delay
@@ -39,7 +48,7 @@ public class EnemyHealth : Health
 
         float beforeDamageFillAmount = healthBar.normalizedValue;
         displayedHealth -= damage;
-        
+
         if (displayedHealth >= 0f)
         {
             UpdateHealthBar();
