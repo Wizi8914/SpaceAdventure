@@ -40,16 +40,8 @@ public class AIAttackPlayerState : AIState
         Debug.Log(agent.weaponClassManager.weaponManager);
         if (agent.weaponClassManager.weaponManager.ShouldFire())
         {
-            Debug.Log("Attacking player");
             agent.weaponClassManager.weaponManager.Fire(); // Fire at the player
         }
-/*
-        if (agent.weaponClassManager.weaponManager.ShouldFire())
-        {
 
-            Debug.Log("Attacking player");
-            //agent.weaponClassManager.weaponManager.Fire(agent.playerTransform); // Fire at the player
-        }
-        */
     }
 }

@@ -68,8 +68,6 @@ public class playerHealth : Health
         GetComponent<MovementStateManager>().enabled = false; // Disable movement
         GetComponent<AimStateManager>().enabled = false; // Disable weapon management
 
-        Debug.Log("killer: " + killer);
-
         cameraManager.EnableKillCam(killer.transform);
     }
 }
