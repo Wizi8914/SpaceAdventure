@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public Transform playerHead;
     public Transform mainCamera;
+    public Canvas canvas;
 
     void Awake()
     {

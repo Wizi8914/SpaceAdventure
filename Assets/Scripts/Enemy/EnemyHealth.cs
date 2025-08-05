@@ -1,62 +1,59 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyHealth : MonoBehaviour
+public class EnemyHealth : Health
 {
-    [HideInInspector] public float health = 100f;
-
     [HideInInspector] public AIAgent agent; // Reference to the AI agent
-    [HideInInspector] public bool isDead;
     // Time before the enemy is destroyed after death
     [SerializeField] public SphereCollider headCollider;
     [SerializeField] public Canvas canvas; // UI Slider to display health
     private Slider healthBar;
     private HealBarCut healBarCut;
-    
 
-    void Start()
+    private float displayedHealth;
+
+    protected override void OnStart()
     {
         agent = GetComponent<AIAgent>();
         healthBar = canvas.GetComponentInChildren<Slider>();
+
         healBarCut = healthBar.GetComponent<HealBarCut>();
-        agent.config.maxHealth = health; // Set the max health in the agent config
-        healthBar.maxValue = health; // Initialize the health bar value
-        healthBar.value = health; // Set the initial health bar value
+        maxHealth = agent.config.maxHealth; // Set the max health in the agent config
+        healthBar.maxValue = currentHealth; // Initialize the health bar value
+        healthBar.value = currentHealth; // Set the initial health bar value
+        displayedHealth = currentHealth; // Initialize displayed health
 
         UpdateHealthBar();
     }
 
-    public void TakeDamage(float damage, bool isHeadShot = false)
+    protected override void OnDeath()
     {
-        if (health > 0f)
+        agent.stateMachine.ChangeState(AIStateID.Death);
+        canvas.enabled = false; // Disable the health bar canvas
+        Destroy(gameObject, agent.config.TimeToDie); // Destroy the enemy after a delay
+    }
+
+    protected override void OnDamage(float damage, bool isHeadShot = false)
+    {
+        if (isDead) return;
+
+        float beforeDamageFillAmount = healthBar.normalizedValue;
+        displayedHealth -= damage;
+        
+        if (displayedHealth >= 0f)
         {
-            float beforeDamageFillAmount = healthBar.normalizedValue;
-            health -= damage;
-            if (health <= 0f) EnemyDeath();
-            else
-            {
-                UpdateHealthBar();
-                healBarCut.UpdateHealBar(beforeDamageFillAmount, healthBar.normalizedValue, isHeadShot);
-            }
+            UpdateHealthBar();
+            healBarCut.UpdateHealBar(beforeDamageFillAmount, healthBar.normalizedValue, isHeadShot);
         }
 
-        // If the agent is in idle state and receives damage, change to chase state
         if (agent.stateMachine.currentState == AIStateID.Idle)
         {
             agent.stateMachine.ChangeState(AIStateID.ChasePlayer);
         }
     }
-
-    void EnemyDeath()
-    {
-
-        agent.stateMachine.ChangeState(AIStateID.Death);
-        canvas.enabled = false; // Disable the health bar canvas
-        Destroy(gameObject, agent.config.TimeToDie);
-    }
     
     void UpdateHealthBar()
     {
-        healthBar.value = health;
+        healthBar.value = currentHealth;
     }
 }

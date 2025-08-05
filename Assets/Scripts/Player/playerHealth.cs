@@ -2,59 +2,52 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class playerHealth : MonoBehaviour
+public class playerHealth : Health
 {
-    public float currentHealth = 100; // Player's health
-    public float maxHealth = 100; // Maximum health the player can have
-    [SerializeField] public Canvas canvas; // UI Slider to display health
+    private RagdollManager ragdollManager;
+    private Canvas canvas; // UI Slider to display health
     private Slider healthBar;
     private HealBarCut healBarCut;
 
-    [HideInInspector] public bool isDead = false; // Flag to check if the player is dead
 
-    void Start()
+    private float displayedHealth;
+
+    protected override void OnStart()
     {
+        canvas = GameManager.Instance.canvas;
         healthBar = canvas.GetComponentInChildren<Slider>();
         healBarCut = healthBar.GetComponent<HealBarCut>();
+
         healthBar.maxValue = maxHealth;
         healthBar.value = currentHealth;
+        displayedHealth = currentHealth; // Initialize displayed health
 
+        ragdollManager = GetComponent<RagdollManager>();
     }
 
-    void Update()
+    protected override void OnDamage(float damage, bool isHeadShot = false)
     {
+        if (isDead) return;
 
-    }
+        float beforeDamageFillAmount = healthBar.normalizedValue;
+        displayedHealth -= damage;
 
-    public void TakeDamage(float damage)
-    {
-        if (currentHealth > 0f)
+        if (displayedHealth >= 0f)
         {
-            float beforeDamageFillAmount = healthBar.normalizedValue;
-            currentHealth -= damage;
-            if (currentHealth <= 0f) IsDead();
-            else
-            {
-                healthBar.value = currentHealth;
-                healBarCut.UpdateHealBar(beforeDamageFillAmount, healthBar.normalizedValue);
-            }  
-        }
-    }
-
-    public void Heal(float amount)
-    {
-        currentHealth += amount;
-        if (currentHealth > maxHealth)
-        {
-            currentHealth = maxHealth;
             healthBar.value = currentHealth;
+            healBarCut.UpdateHealBar(beforeDamageFillAmount, healthBar.normalizedValue);
         }
     }
 
-    public bool IsDead()
+    protected override void OnHeal(float amount)
     {
-        return currentHealth <= 0;
+        healthBar.value = currentHealth;
     }
 
-
+    protected override void OnDeath()
+    {
+        isDead = true;
+        GetComponent<Animator>().enabled = false;
+        ragdollManager.EnableRagdoll();
+    }
 }

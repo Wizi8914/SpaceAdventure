@@ -29,11 +29,9 @@ public class EnemyWeaponManager : MonoBehaviour
     [HideInInspector] public AudioSource audioSource;
     [HideInInspector] public WeaponAmmo ammo;
     Light muzzleFlashLight;
-    ParticleSystem muzzleFlashPArticle;
+    ParticleSystem muzzleFlashParticle;
     float lightIntensity;
     [SerializeField] float lightReturnSpeed = 20f;
-
-    public float ennemyKickBackForce = 100f;
 
     public Transform leftHandTarget, leftHandHint;
 
@@ -46,7 +44,7 @@ public class EnemyWeaponManager : MonoBehaviour
         muzzleFlashLight = bulletSpawnLocation.GetComponentInChildren<Light>();
         lightIntensity = muzzleFlashLight.intensity;
         muzzleFlashLight.intensity = 0f;
-        muzzleFlashPArticle = bulletSpawnLocation.GetComponentInChildren<ParticleSystem>();
+        muzzleFlashParticle = bulletSpawnLocation.GetComponentInChildren<ParticleSystem>();
         fireRateTimer = fireRate;
     }
 
@@ -94,8 +92,6 @@ public class EnemyWeaponManager : MonoBehaviour
 
         TriggerMuzzleFlash();
 
-        Debug.Log($"Current Ammo: {bulletSpawnLocation.position}");
-
         ammo.currentAmmo--;
 
         for (int i = 0; i < (isBurstFire ? 1 : bulletsPerShot); i++)
@@ -133,7 +129,7 @@ public class EnemyWeaponManager : MonoBehaviour
 
     void TriggerMuzzleFlash()
     {
-        muzzleFlashPArticle.Play();
+        muzzleFlashParticle.Play();
         muzzleFlashLight.intensity = lightIntensity;
     }
 }

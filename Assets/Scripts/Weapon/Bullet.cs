@@ -44,8 +44,10 @@ public class Bullet : MonoBehaviour
                 enemy.TakeDamage(weapon.damage);
             }
 
-            if (enemy.health <= 0f && enemy.isDead == false)
+            if (enemy.currentHealth <= 0f && enemy.isDead == false)
             {
+                
+
                 Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
                 rb.AddForce(direction * weapon.ennemyKickBackForce, ForceMode.Impulse);
 

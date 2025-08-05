@@ -9,6 +9,7 @@ public class EnemyWeaponClassManager : MonoBehaviour
     private RigBuilder rigBuilder;
     [HideInInspector] public GameObject weaponPrefab;
     [HideInInspector] public EnemyWeaponManager weaponManager;
+    public float inaccuracy = 2f; // How much the bullet can deviate from the target direction
 
     private GameObject weaponMeshInstance;
     public Transform weaponHolder;
@@ -61,7 +62,7 @@ public class EnemyWeaponClassManager : MonoBehaviour
 
         weaponMeshInstance = Instantiate(weaponPrefab, weaponHolder);
         weaponManager = weaponMeshInstance.GetComponent<EnemyWeaponManager>();
-
+        weaponManager.inaccuracy = inaccuracy;
         weaponMeshInstance.transform.localPosition = weaponPrefab.transform.localPosition;
         weaponMeshInstance.transform.localRotation = weaponPrefab.transform.localRotation;
         weaponMeshInstance.transform.localScale = weaponPrefab.transform.localScale;

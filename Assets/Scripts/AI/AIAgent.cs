@@ -21,6 +21,7 @@ public class AIAgent : MonoBehaviour
         // Init weapon class manager
         weaponClassManager = GetComponent<EnemyWeaponClassManager>();
         weaponClassManager.weaponPrefab = config.weaponPrefab;
+        weaponClassManager.inaccuracy = config.inaccuracy; // Set inaccuracy from config
         weaponClassManager.UpdateWeapon();
 
         ragdollManager = GetComponent<RagdollManager>();

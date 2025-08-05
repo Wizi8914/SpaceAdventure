@@ -22,6 +22,7 @@ public class AIAgentConfig : ScriptableObject
 
     [Header("Weapon Settings")]
     public GameObject weaponPrefab; //
+    public float inaccuracy = 2f; // How much the bullet can deviate from the target direction
 
     [Header("Death Settings")]
     public float TimeToDie = 5f; // Time before the enemy is destroyed after death
