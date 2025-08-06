@@ -7,6 +7,7 @@ public class AIAgent : MonoBehaviour
     public AIStateMachine stateMachine;
     public AIStateID initialState;
 
+    public bool isPatrolling = false;
     public PatrolPath patrolPath;
     [HideInInspector] public Transform playerTransform;
     [HideInInspector] public NavMeshAgent navMeshAgent;
@@ -33,6 +34,8 @@ public class AIAgent : MonoBehaviour
 
         playerTransform = GameManager.Instance.player.transform;
 
+        navMeshAgent.speed = config.speed; // Set the speed from the config
+
         // Register all states
         RegisterAllStates();
 
@@ -51,6 +54,7 @@ public class AIAgent : MonoBehaviour
         stateMachine.RegisterState(new AIChasePlayerState());
         stateMachine.RegisterState(new AIIdleState());
         stateMachine.RegisterState(new AIAttackPlayerState());
+        stateMachine.RegisterState(new AIPatrolState());
         // Add other states as needed
     }
 }

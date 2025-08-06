@@ -6,12 +6,18 @@ public class AIAgentConfig : ScriptableObject
 {
     [Header("AI Agent Configuration")]
     public float maxHealth = 100f;
+    public float speed = 3.5f;
 
     [Header("AI Behavior Settings")]
     public float maxTime = 1f;
     public float maxDistance = 1f;
     public float minSeenTime = 1f; // Minimum time the player must be seen to trigger a response
     public float maxSightDistance = 10f; // Maximum distance for AI to see the player
+
+    [Header("Patrol Parameters")]
+    public float patrolDistanceThreshold = 1f; // Distance to the next patrol point before moving to the next one
+    public float patrolWaitTime = 0f; // Time to wait at each patrol point
+    public float patrolSpeed = 3.5f;
 
     [Header("Detection Settings")]
     public float minAttackDistance = 2f; // Minimum distance for the AI to start attacking

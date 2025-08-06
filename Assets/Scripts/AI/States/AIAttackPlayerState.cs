@@ -11,6 +11,7 @@ public class AIAttackPlayerState : AIState
     {
         agent.animator.SetBool("Aiming", true); // Set the aiming animation
         agent.navMeshAgent.stoppingDistance = agent.config.minAttackDistance; // Set the stopping distance to the attack range
+        agent.navMeshAgent.speed = agent.config.speed;
     }
 
     public void ExitState(AIAgent agent)

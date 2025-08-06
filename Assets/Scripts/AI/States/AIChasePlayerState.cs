@@ -15,6 +15,8 @@ public class AIChasePlayerState : AIState
     {
         chaseTime = agent.config.maxChaseTime;
         noVisionTimer = agent.config.maxChaseDurationWithoutVision;
+        agent.navMeshAgent.speed = agent.config.speed; // Set the chase speed from the config
+        agent.navMeshAgent.stoppingDistance = agent.config.minAttackDistance; // Set the stopping distance for chasing
     }
 
     public void UpdateState(AIAgent agent)
@@ -63,12 +65,24 @@ public class AIChasePlayerState : AIState
         }
     }
 
+    private void ChangeToPatrolOrIdle(AIAgent agent)
+    {
+        if (agent.isPatrolling && agent.patrolPath != null)
+        {
+            agent.stateMachine.ChangeState(AIStateID.Patrol);
+        }
+        else
+        {
+            agent.stateMachine.ChangeState(AIStateID.Idle);
+        }
+    }
+
     private void CheckIdleTransition(AIAgent agent)
     {
         float distanceToPlayer = Vector3.Distance(agent.transform.position, agent.playerTransform.position);
         if (distanceToPlayer > agent.config.maxChaseDistance)
         {
-            agent.stateMachine.ChangeState(AIStateID.Idle);
+            ChangeToPatrolOrIdle(agent);
         }
     }
 
@@ -76,7 +90,7 @@ public class AIChasePlayerState : AIState
     {
         if (chaseTime <= 0f)
         {
-            agent.stateMachine.ChangeState(AIStateID.Idle);
+            ChangeToPatrolOrIdle(agent);
         }
     }
 
@@ -91,7 +105,7 @@ public class AIChasePlayerState : AIState
             noVisionTimer -= Time.deltaTime;
             if (noVisionTimer <= 0f)
             {
-                agent.stateMachine.ChangeState(AIStateID.Idle);
+                ChangeToPatrolOrIdle(agent);
             }
         }
     }

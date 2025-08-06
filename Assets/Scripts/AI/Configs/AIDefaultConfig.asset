@@ -17,6 +17,9 @@ MonoBehaviour:
   maxDistance: 1
   minSeenTime: 3
   maxSightDistance: 3
+  patrolDistanceThreshold: 1
+  patrolWaitTime: 0
+  patrolSpeed: 3
   minAttackDistance: 4
   maxAttackDistance: 7
   maxChaseDistance: 20

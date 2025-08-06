@@ -14,11 +14,7 @@ public class AIIdleState : AIState
         
     }
     public void UpdateState(AIAgent agent)
-    {
-        // Check if agent receives a damage
-        
-
-
+    {  
         // Check if the player is seen
         if (agent.detectionStateManager.PlayerSeen())
         {
