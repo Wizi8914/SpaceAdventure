@@ -1918,6 +1918,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 100
   maxHealth: 100
+  invincibilityDuration: 0.08
   isDead: 0
 --- !u!114 &9168965981428861716
 MonoBehaviour:

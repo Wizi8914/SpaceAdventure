@@ -12,9 +12,6 @@ public class PlayerHealth : Health
     private CameraManager cameraManager; // Reference to the camera manager
 
     private float displayedHealth;
-
-    public float invincibilityDur = 0.4f; // Duration of invincibility after taking damage
-
     protected override void OnStart()
     {
         canvas = GameManager.Instance.canvas;
@@ -29,7 +26,6 @@ public class PlayerHealth : Health
         displayedHealth = currentHealth; // Initialize displayed health
 
         ragdollManager = GetComponent<RagdollManager>();
-        invincibilityDuration = invincibilityDur;
     }
 
     protected override void OnDamage(float damage, bool isHeadShot = false)

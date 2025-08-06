@@ -129,6 +129,7 @@ public class EnemyWeaponManager : MonoBehaviour
         {
             Fire();
             yield return new WaitForSeconds(burstInterval);
+            Debug.Log("Burst Fire Started");
         }
         isBursting = false;
     }

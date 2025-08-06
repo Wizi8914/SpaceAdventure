@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e109a98a3bb991b43acc3d37ce9d1108, type: 3}
+  m_Name: AILRConfig
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  speed: 3.5
+  maxTime: 1
+  maxDistance: 1
+  minSeenTime: 2
+  maxSightDistance: 3
+  patrolDistanceThreshold: 2
+  patrolWaitTime: 0.5
+  patrolSpeed: 2
+  minAttackDistance: 4
+  maxAttackDistance: 7
+  maxChaseDistance: 20
+  maxChaseTime: 60
+  maxChaseDurationWithoutVision: 4
+  weaponPrefab: {fileID: 521188321454671827, guid: f39b34a7af0da064e88ad2bc06281e1f, type: 3}
+  inaccuracy: 5
+  TimeToDie: 7

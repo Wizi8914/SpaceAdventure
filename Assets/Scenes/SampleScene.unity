@@ -2138,8 +2138,7 @@ PrefabInstance:
       propertyPath: crosshair
       value: 
       objectReference: {fileID: 927029823}
-    m_RemovedComponents:
-    - {fileID: 8138934407597793775, guid: b6c6d49d71762bb4b99bc5117110d9f0, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -7638,7 +7637,7 @@ PrefabInstance:
     - target: {fileID: 8776624292894882451, guid: 2c6a354f367b5d2479077a71b3e9f590, type: 3}
       propertyPath: config
       value: 
-      objectReference: {fileID: 11400000, guid: 864e3e29cbf359345af037397fe638b5, type: 2}
+      objectReference: {fileID: 11400000, guid: b796a9cd34fd1f2408082f088dd242db, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
