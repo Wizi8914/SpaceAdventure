@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -1562773964781341476}
   - component: {fileID: 483695884323186925}
   - component: {fileID: 7478649641439727191}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5220,3 +5220,4 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   holeSizeMultiplier: 0
   bulletImpactPrefab: {fileID: 5332507677904945200, guid: 0ba8fa79606fe8642a03c8252b41e139, type: 3}
+  parentObject: {fileID: 0}

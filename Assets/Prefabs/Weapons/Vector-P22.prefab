@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6609436376177531015}
   - component: {fileID: 2066864588240358759}
   - component: {fileID: 7031774955116516206}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Vector-P22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +252,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3655661018001662826}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LHandIK_hint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +283,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 440866041137729120}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LHandIK_target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,7 +316,7 @@ GameObject:
   - component: {fileID: 6212529293082197361}
   - component: {fileID: 9221095963956848194}
   - component: {fileID: 1695512711385737383}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5207,7 +5207,7 @@ GameObject:
   - component: {fileID: 4496354821499069943}
   - component: {fileID: 6498981839532925080}
   - component: {fileID: 5147071504738298308}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MuzzleFlashLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5326,7 +5326,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7674507447365826142}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BulletSpawnPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5359,7 +5359,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 896047269933573354}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WeaponMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5433,6 +5433,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 47ae2f5c509749042a5e5c516294b5c4, type: 3}
       propertyPath: m_Name
       value: vintorez
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 47ae2f5c509749042a5e5c516294b5c4, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

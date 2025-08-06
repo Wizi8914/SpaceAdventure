@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3182264350041711603}
   - component: {fileID: 2145878189347782994}
   - component: {fileID: 7419997062665746579}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4900,7 +4900,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1236730656236897623}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LHandIK_hint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4933,7 +4933,7 @@ GameObject:
   - component: {fileID: 241158142696505569}
   - component: {fileID: 9048812841856214787}
   - component: {fileID: 29549481902324412}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MuzzleFlashLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5052,7 +5052,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2334952949783112041}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LHandIK_target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5083,7 +5083,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1476596399344103423}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WeaponMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5121,7 +5121,7 @@ GameObject:
   - component: {fileID: 3337628261705557819}
   - component: {fileID: 3497792792777352250}
   - component: {fileID: 381714553205961962}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AR-181
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5358,7 +5358,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7438315707947669456}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BulletSpawnPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5430,9 +5430,69 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8552736582221928455, guid: dd673ed1d32339d4dab3984e3ebda58a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8088447074351329106, guid: dd673ed1d32339d4dab3984e3ebda58a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -7795328010421119252, guid: dd673ed1d32339d4dab3984e3ebda58a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -7452512926122353873, guid: dd673ed1d32339d4dab3984e3ebda58a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -6488406938292902424, guid: dd673ed1d32339d4dab3984e3ebda58a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -4558568963249353275, guid: dd673ed1d32339d4dab3984e3ebda58a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -363239611911779191, guid: dd673ed1d32339d4dab3984e3ebda58a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: dd673ed1d32339d4dab3984e3ebda58a, type: 3}
       propertyPath: m_Name
       value: AR-181_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: dd673ed1d32339d4dab3984e3ebda58a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623353719346036124, guid: dd673ed1d32339d4dab3984e3ebda58a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667484061337142359, guid: dd673ed1d32339d4dab3984e3ebda58a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2756302302994239583, guid: dd673ed1d32339d4dab3984e3ebda58a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5698063888307177440, guid: dd673ed1d32339d4dab3984e3ebda58a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441905561686813947, guid: dd673ed1d32339d4dab3984e3ebda58a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7326610888755282613, guid: dd673ed1d32339d4dab3984e3ebda58a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8022100546719869418, guid: dd673ed1d32339d4dab3984e3ebda58a, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

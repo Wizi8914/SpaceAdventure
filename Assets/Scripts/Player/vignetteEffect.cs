@@ -13,8 +13,10 @@ public class VignetteEffect : MonoBehaviour
 
     void Start()
     {
-        Volume vol = FindFirstObjectByType<Volume>();
-        if (vol != null) 
+        Volume vol = GameManager.Instance.mainCamera.GetComponentInChildren<Volume>();
+
+
+        if (vol != null)
         {
             volume = vol.profile;
             volume.TryGet(out vignette);

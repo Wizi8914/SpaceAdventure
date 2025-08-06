@@ -6,6 +6,8 @@ public class AIAgent : MonoBehaviour
     public AIAgentConfig config;
     public AIStateMachine stateMachine;
     public AIStateID initialState;
+
+    public PatrolPath patrolPath;
     [HideInInspector] public Transform playerTransform;
     [HideInInspector] public NavMeshAgent navMeshAgent;
     [HideInInspector] public RagdollManager ragdollManager;

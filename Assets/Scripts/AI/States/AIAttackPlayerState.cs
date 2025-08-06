@@ -37,9 +37,17 @@ public class AIAttackPlayerState : AIState
 
     private void AttackPlayer(AIAgent agent)
     {
-        Debug.Log(agent.weaponClassManager.weaponManager);
         if (agent.weaponClassManager.weaponManager.ShouldFire())
         {
+            if (agent.weaponClassManager.weaponManager.isBurstFire && !agent.weaponClassManager.weaponManager.isBursting)
+            {
+                agent.StartCoroutine(agent.weaponClassManager.weaponManager.BurstFire());
+            }
+            else
+            {
+                agent.weaponClassManager.weaponManager.Fire();
+            }
+
             agent.weaponClassManager.weaponManager.Fire(); // Fire at the player
         }
 

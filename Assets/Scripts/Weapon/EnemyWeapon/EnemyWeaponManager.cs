@@ -8,12 +8,11 @@ public class EnemyWeaponManager : MonoBehaviour
     [Header("Fire Rate")]
     [SerializeField] float fireRate;
     float fireRateTimer;
-    [SerializeField] bool semiAutomatic = true;
 
     [Header("Burst Fire")]
-    [SerializeField] bool isBurstFire = false;
+    public bool isBurstFire = false;
     [SerializeField] float burstInterval = 0.08f;
-    bool isBursting = false;
+    [HideInInspector] public bool isBursting = false;
 
     [Header("Bullet Properties")]
     [SerializeField] GameObject bulletPrefab;
@@ -27,7 +26,6 @@ public class EnemyWeaponManager : MonoBehaviour
 
     [SerializeField] AudioClip fireSound;
     [HideInInspector] public AudioSource audioSource;
-    [HideInInspector] public WeaponAmmo ammo;
     Light muzzleFlashLight;
     ParticleSystem muzzleFlashParticle;
     float lightIntensity;
@@ -38,7 +36,6 @@ public class EnemyWeaponManager : MonoBehaviour
 
     void Start()
     {
-        ammo = GetComponent<WeaponAmmo>();
         audioSource = GetComponent<AudioSource>();
         bulletSpawnLocation = transform.Find("BulletSpawnPos");
         muzzleFlashLight = bulletSpawnLocation.GetComponentInChildren<Light>();
@@ -74,7 +71,6 @@ public class EnemyWeaponManager : MonoBehaviour
     {
         fireRateTimer += Time.deltaTime;
 
-        if (ammo.currentAmmo <= 0) return false;
         if (fireRateTimer < fireRate) return false;
 
         var playerHealth = GameManager.Instance.player.GetComponent<playerHealth>();
@@ -96,7 +92,6 @@ public class EnemyWeaponManager : MonoBehaviour
 
         TriggerMuzzleFlash();
 
-        ammo.currentAmmo--;
 
         for (int i = 0; i < (isBurstFire ? 1 : bulletsPerShot); i++)
         {
@@ -117,13 +112,11 @@ public class EnemyWeaponManager : MonoBehaviour
         }
     }
 
-    IEnumerator BurstFire()
+    public IEnumerator BurstFire()
     {
         isBursting = true;
         for (int i = 0; i < bulletsPerShot; i++)
         {
-            if (ammo.currentAmmo == 0) break;
-
             Fire();
             yield return new WaitForSeconds(burstInterval);
         }

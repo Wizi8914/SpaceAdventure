@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4726370305628522048}
   - component: {fileID: 4211512403520197399}
   - component: {fileID: 8958113928213821306}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ak-47A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +253,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6924609078147325846}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LHandIK_target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +284,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3758421327658952564}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LHandIK_hint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 1515206844891840644}
   - component: {fileID: 3813093386241122770}
   - component: {fileID: 4838334238979051355}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -401,7 +401,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2299545509756264249}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BulletSpawnPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 992912503284642431}
   - component: {fileID: 5502305956592572075}
   - component: {fileID: 4973128769618708561}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MuzzleFlashParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5327,7 +5327,7 @@ GameObject:
   - component: {fileID: 7914191704888698360}
   - component: {fileID: 3981726188879228309}
   - component: {fileID: 2504164545131295207}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MuzzleFlashLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5448,7 +5448,7 @@ GameObject:
   - component: {fileID: 3267933325521622252}
   - component: {fileID: 391973594170727596}
   - component: {fileID: 4901695178258807379}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
