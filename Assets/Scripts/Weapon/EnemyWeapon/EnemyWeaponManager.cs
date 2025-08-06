@@ -34,6 +34,7 @@ public class EnemyWeaponManager : MonoBehaviour
     public Transform leftHandTarget, leftHandHint;
 
 
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -73,7 +74,7 @@ public class EnemyWeaponManager : MonoBehaviour
 
         if (fireRateTimer < fireRate) return false;
 
-        var playerHealth = GameManager.Instance.player.GetComponent<playerHealth>();
+        var playerHealth = GameManager.Instance.player.GetComponent<PlayerHealth>();
         if (playerHealth != null && playerHealth.isDead) return false;
 
         return true;
@@ -82,8 +83,17 @@ public class EnemyWeaponManager : MonoBehaviour
     public void Fire(Transform target = null)
     {
         fireRateTimer = 0f;
-        bulletSpawnLocation.LookAt(target ? target.position : GameManager.Instance.player.transform.position);
-        bulletSpawnLocation.localEulerAngles = new Vector3(Random.Range(-inaccuracy, inaccuracy), Random.Range(-inaccuracy, inaccuracy), 0);
+
+        Vector3 aimTarget = target ? target.position : GameManager.Instance.playerHead.position;
+        Vector3 direction = (aimTarget - bulletSpawnLocation.position).normalized;
+
+        Quaternion randomSpread = Quaternion.Euler(
+            Random.Range(-inaccuracy, inaccuracy),
+            Random.Range(-inaccuracy, inaccuracy),
+            0f
+        );
+
+        Quaternion spawnRotation = Quaternion.LookRotation(direction) * randomSpread;
 
         // Play fire sound
         audioSource.pitch = Random.Range(0.85f, 1.1f);
@@ -95,20 +105,20 @@ public class EnemyWeaponManager : MonoBehaviour
 
         for (int i = 0; i < (isBurstFire ? 1 : bulletsPerShot); i++)
         {
+            GameObject currentBullet = Instantiate(bulletPrefab, bulletSpawnLocation.position, spawnRotation);
 
-            GameObject currentBullet = Instantiate(bulletPrefab, bulletSpawnLocation.position, bulletSpawnLocation.rotation);
             EnemyBullet bullet = currentBullet.GetComponent<EnemyBullet>();
 
             bullet.holeSizeMultiplier = bulletHoleSizeMultiplier;
 
             bullet.weapon = this; // Assign the weapon to the bullet
 
-            bullet.direction = bulletSpawnLocation.transform.forward;
+            bullet.direction = currentBullet.transform.forward;
             bullet.parentObject = gameObject;
 
             Rigidbody rb = currentBullet.GetComponent<Rigidbody>();
 
-            if (rb != null) rb.AddForce(bulletSpawnLocation.forward * bulletVelocity, ForceMode.Impulse);
+            if (rb != null) rb.AddForce(currentBullet.transform.forward * bulletVelocity, ForceMode.Impulse);
         }
     }
 

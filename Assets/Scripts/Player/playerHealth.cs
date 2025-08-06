@@ -1,8 +1,7 @@
-using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class playerHealth : Health
+public class PlayerHealth : Health
 {
     private RagdollManager ragdollManager;
     private Canvas canvas; // UI Slider to display health
@@ -12,8 +11,9 @@ public class playerHealth : Health
 
     private CameraManager cameraManager; // Reference to the camera manager
 
-
     private float displayedHealth;
+
+    public float invincibilityDur = 0.4f; // Duration of invincibility after taking damage
 
     protected override void OnStart()
     {
@@ -29,6 +29,7 @@ public class playerHealth : Health
         displayedHealth = currentHealth; // Initialize displayed health
 
         ragdollManager = GetComponent<RagdollManager>();
+        invincibilityDuration = invincibilityDur;
     }
 
     protected override void OnDamage(float damage, bool isHeadShot = false)

@@ -12,7 +12,6 @@ public class EnemyBullet : MonoBehaviour
 
     [HideInInspector] public GameObject parentObject;
 
-
     ParticleSystem bulletParticle;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -23,10 +22,10 @@ public class EnemyBullet : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision collision)
-    {        
+    {
         if (collision.gameObject.transform.root.CompareTag("Player"))
         {
-            playerHealth player = collision.gameObject.transform.root.gameObject.GetComponent<playerHealth>();
+            PlayerHealth player = collision.gameObject.transform.root.gameObject.GetComponent<PlayerHealth>();
 
             player.TakeDamage(weapon.damage, false, parentObject);
 
@@ -46,7 +45,7 @@ public class EnemyBullet : MonoBehaviour
         }
 
         bulletParticle.Play();
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 
     private void SpawnImpactEffect(Vector3 position, Quaternion rotation, bool isASurfaceImpact = false)

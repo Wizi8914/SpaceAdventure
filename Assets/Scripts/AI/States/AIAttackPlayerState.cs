@@ -48,8 +48,6 @@ public class AIAttackPlayerState : AIState
             {
                 agent.weaponClassManager.weaponManager.Fire();
             }
-
-            agent.weaponClassManager.weaponManager.Fire(); // Fire at the player
         }
 
     }

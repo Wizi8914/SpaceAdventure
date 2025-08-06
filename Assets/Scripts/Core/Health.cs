@@ -5,6 +5,19 @@ public class Health : MonoBehaviour
     public float currentHealth = 100f; // Current health of the entity
     public float maxHealth = 100f; // Maximum health of the entity
 
+    public float invincibilityDuration = 0f; // Duration of invincibility after taking damage
+    private float invincibilityTimer = 0f; // Timer for invincibility after taking damage
+
+    void Update()
+    {
+        if (invincibilityTimer > 0f) invincibilityTimer -= Time.deltaTime;
+    }
+
+    public bool IsInvincible()
+    {
+        return invincibilityTimer > 0f;
+    }
+
     [HideInInspector] public bool isDead = false; // Flag to check if the entity is dead
 
     void Start()
@@ -16,6 +29,9 @@ public class Health : MonoBehaviour
     public void TakeDamage(float damage, bool isHeadShot = false, GameObject emitter = null)
     {
         if (isDead) return; // If already dead, do nothing
+
+        if (IsInvincible()) return;
+        invincibilityTimer = invincibilityDuration;
 
         currentHealth -= damage;
         if (currentHealth <= 0f)

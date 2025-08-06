@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e109a98a3bb991b43acc3d37ce9d1108, type: 3}
-  m_Name: AIDefaultConfig
+  m_Name: AIARConfig
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  speed: 3.5
+  maxHealth: 120
+  speed: 3
   maxTime: 1
   maxDistance: 1
   minSeenTime: 2
@@ -21,11 +21,11 @@ MonoBehaviour:
   patrolDistanceThreshold: 2
   patrolWaitTime: 0.5
   patrolSpeed: 2
-  minAttackDistance: 4
-  maxAttackDistance: 7
+  minAttackDistance: 6
+  maxAttackDistance: 8
   maxChaseDistance: 20
   maxChaseTime: 60
   maxChaseDurationWithoutVision: 4
-  weaponPrefab: {fileID: 521188321454671827, guid: f39b34a7af0da064e88ad2bc06281e1f, type: 3}
-  inaccuracy: 5
+  weaponPrefab: {fileID: 6843329953793089145, guid: 7798c9e651937924db0ec8bf85d736f8, type: 3}
+  inaccuracy: 4.5
   TimeToDie: 7
