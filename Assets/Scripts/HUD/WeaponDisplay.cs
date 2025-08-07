@@ -3,20 +3,18 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WeaponDispla : MonoBehaviour
+public class WeaponDisplay : MonoBehaviour
 {
     public TMP_Text currentWeaponText;
     public TMP_Text currentAmmoText;
     public TMP_Text ammoLeftText;
     public Image weaponIcon;
 
-    public GameObject player;
-
     private ActionStateManager actions;
 
     void Start()
     {
-        actions = player.GetComponent<ActionStateManager>();
+        actions = GameManager.Instance.player.GetComponent<ActionStateManager>();
         updateHUD();
     }
 

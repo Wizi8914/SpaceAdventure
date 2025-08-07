@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e109a98a3bb991b43acc3d37ce9d1108, type: 3}
   m_Name: AIAKConfig
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 90
   speed: 3.5
   maxTime: 1
   maxDistance: 1
