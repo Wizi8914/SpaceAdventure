@@ -50,21 +50,6 @@ public class EnemyWeaponManager : MonoBehaviour
     
     void Update()
     {
-
-        // Debug.Log($"Fire Rate Timer: {fireRateTimer}, Fire Rate: {fireRate}");
-        // Debug.Log($"Delta time: {Time.deltaTime}");
-
-        /*
-        if (isBurstFire && !isBursting)
-        {
-            StartCoroutine(BurstFire());
-        }
-        else
-        {
-            Fire();
-        }
-        */
-
         muzzleFlashLight.intensity = Mathf.Lerp(muzzleFlashLight.intensity, 0f, lightReturnSpeed * Time.deltaTime);
     }
     
@@ -129,7 +114,6 @@ public class EnemyWeaponManager : MonoBehaviour
         {
             Fire();
             yield return new WaitForSeconds(burstInterval);
-            Debug.Log("Burst Fire Started");
         }
         isBursting = false;
     }
