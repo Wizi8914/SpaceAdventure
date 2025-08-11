@@ -55,9 +55,9 @@ public class EnemyHealth : Health
             healBarCut.UpdateHealBar(beforeDamageFillAmount, healthBar.normalizedValue, isHeadShot);
         }
 
-        if (agent.stateMachine.currentState == AIStateID.Idle)
+        if (agent.stateMachine.currentState == AIStateID.Idle || agent.stateMachine.currentState == AIStateID.Patrol)
         {
-            agent.stateMachine.ChangeState(AIStateID.ChasePlayer);
+            agent.stateMachine.ChangeState(AIStateID.Attack);
         }
     }
     

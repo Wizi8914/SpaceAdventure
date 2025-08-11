@@ -16,7 +16,7 @@ MonoBehaviour:
   speed: 3.5
   maxTime: 1
   maxDistance: 1
-  minSeenTime: 2
+  minSeenTime: 1
   maxSightDistance: 3
   patrolDistanceThreshold: 2
   patrolWaitTime: 0.5

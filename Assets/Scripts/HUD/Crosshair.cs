@@ -60,12 +60,3 @@ public class Crosshair : MonoBehaviour
         currentBumpAmount = amount;
     }
 }
-
-
-//currentRecoilPosition = Mathf.Lerp(currentRecoilPosition, 0f, returnSpeed * Time.deltaTime);
-//finalRecoilPosition = Mathf.Lerp(finalRecoilPosition, currentRecoilPosition, kickBackSpeed * Time.deltaTime);
-
-//recoilFollowPos.localPosition = new Vector3(0, 0, finalRecoilPosition);
-    
-
-//public void TriggerRecoil() => currentRecoilPosition += kickBackForce;

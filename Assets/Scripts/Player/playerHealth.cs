@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -42,7 +43,7 @@ public class PlayerHealth : Health
         }
 
         vignetteEffect.SetVignetteIntensity(1f - healthBar.normalizedValue);
-        
+
     }
 
     protected override void OnHeal(float amount)
@@ -60,12 +61,14 @@ public class PlayerHealth : Health
 
         WeaponClassManager weaponClassManager = GetComponent<WeaponClassManager>();
         weaponClassManager.DropWeapon();
-        weaponClassManager.weapon[weaponClassManager.currentWeaponIndex].GetComponent<WeaponManager>().enabled = false; // Disable the current weapon manager
-        weaponClassManager.enabled = false; // Disable the weapon class manager
+        weaponClassManager.weapon[weaponClassManager.currentWeaponIndex].GetComponent<WeaponManager>().enabled = false;
+        weaponClassManager.enabled = false;
 
-        GetComponent<MovementStateManager>().enabled = false; // Disable movement
-        GetComponent<AimStateManager>().enabled = false; // Disable weapon management
+        GetComponent<MovementStateManager>().enabled = false;
+        GetComponent<AimStateManager>().enabled = false;
 
         cameraManager.EnableKillCam(killer.transform);
+
+        StartCoroutine(GameManager.Instance.RestartGame(3f)); // Magic number :)
     }
 }

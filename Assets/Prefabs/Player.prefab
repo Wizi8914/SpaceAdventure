@@ -438,8 +438,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 913203981911203377}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.691, y: 1.462, z: -2.296}
+  m_LocalRotation: {x: -0.62660396, y: 0, z: 0, w: 0.7793379}
+  m_LocalPosition: {x: 0.54999995, y: -0.0338935, z: -0.76581347}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1665,8 +1665,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4227416077996698315}
   - {fileID: 1239252723394768158}
@@ -1758,7 +1758,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 577
   crosshair: {fileID: 0}
-  minAimDistance: 10
+  minAimDistance: 3
   shoulderSwapSpeed: 10
   crouchCamHeight: 0.6
   adsSpace: 0.5
@@ -3033,8 +3033,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6044588462433214909}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.691, y: 1.062, z: -0.296}
+  m_LocalRotation: {x: -0.62660396, y: 0, z: 0, w: 0.7793379}
+  m_LocalPosition: {x: 0.55, y: 1.3, z: -0.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

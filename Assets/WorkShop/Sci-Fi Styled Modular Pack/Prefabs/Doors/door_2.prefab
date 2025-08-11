@@ -150,6 +150,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InteractionMessage: Press [E] to open the door
   openAnimationTime: 2
+  openSound: {fileID: 8300000, guid: e6ee63ceb87a8844da8b71e80dd87c00, type: 3}
+  closeSound: {fileID: 8300000, guid: e6ee63ceb87a8844da8b71e80dd87c00, type: 3}
 --- !u!135 &8683216990580612203
 SphereCollider:
   m_ObjectHideFlags: 0

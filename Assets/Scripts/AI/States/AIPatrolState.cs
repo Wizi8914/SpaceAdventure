@@ -36,7 +36,6 @@ public class AIPatrolState : AIState
             }
             else
             {
-                Debug.Log("Moving to next patrol point immediately");
                 agent.navMeshAgent.SetDestination(agent.patrolPath.patrolPoints[currentPatrolPointIndex].position);
             }
         }

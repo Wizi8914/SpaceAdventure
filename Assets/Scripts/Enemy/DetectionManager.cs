@@ -62,10 +62,10 @@ public class DetectionManager : MonoBehaviour
             Debug.DrawLine(enemyEyes.position, aimPosition.position, Color.red);
         }
 
-        if (isAIAgent) ajustAgentRotation();
+        if (isAIAgent) AjustAgentRotation();
     }
     
-    private void ajustAgentRotation()
+    private void AjustAgentRotation()
     {
         float distanceToPlayer = Vector3.Distance(enemyEyes.position, playerHead.position);
         if (distanceToPlayer > agent.config.minAttackDistance) return;

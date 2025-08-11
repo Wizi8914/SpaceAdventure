@@ -1467,7 +1467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookDistance: 30
-  fov: 170
+  fov: 185
   enemyEyes: {fileID: 344335747497962367}
   isAIAgent: 1
   aimPosition: {fileID: 3287548560993451293}

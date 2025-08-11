@@ -11,6 +11,8 @@ public class Door : MonoBehaviour, IInteractable
     private Animator animator;
     public float openAnimationTime = 1f;
     private bool isAnimating = false;
+    public AudioClip openSound;
+    public AudioClip closeSound;
 
     private void Start()
     {
@@ -22,6 +24,7 @@ public class Door : MonoBehaviour, IInteractable
         isOpen = true;
         animator.SetBool("character_nearby", true);
         InteractionMessage = InteractionMessage.Replace("open", "close");
+        AudioSource.PlayClipAtPoint(openSound, transform.position);
     }
 
     public void Close()
@@ -29,6 +32,7 @@ public class Door : MonoBehaviour, IInteractable
         isOpen = false;
         animator.SetBool("character_nearby", false);
         InteractionMessage = InteractionMessage.Replace("close", "open");
+        AudioSource.PlayClipAtPoint(closeSound, transform.position);
     }
 
     public void Interact()
