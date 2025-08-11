@@ -29,8 +29,8 @@ public class Health : MonoBehaviour
     public void TakeDamage(float damage, bool isHeadShot = false, GameObject emitter = null)
     {
         if (isDead) return; // If already dead, do nothing
-
         if (IsInvincible()) return;
+
         invincibilityTimer = invincibilityDuration;
 
         currentHealth -= damage;

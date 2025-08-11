@@ -38,6 +38,29 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(delay);
         Time.timeScale = 1f; // Reset time scale after restart
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+    }
 
+    public void EnableUIMode()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        
+        if (player != null)
+        {
+            var aimManager = player.GetComponent<AimStateManager>();
+            if (aimManager != null) aimManager.enabled = false;
+        }
+    }
+
+    public void EnableGameplayMode()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        
+        if (player != null)
+        {
+            var aimManager = player.GetComponent<AimStateManager>();
+            if (aimManager != null) aimManager.enabled = true;
+        }
     }
 }
