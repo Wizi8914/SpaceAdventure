@@ -10,12 +10,12 @@ public class Health : MonoBehaviour
 
     void Update()
     {
-        if (invincibilityTimer > 0f) invincibilityTimer -= Time.deltaTime;
+        if (invincibilityTimer >= 0f) invincibilityTimer -= Time.deltaTime;
     }
 
     public bool IsInvincible()
     {
-        return invincibilityTimer > 0f;
+        return invincibilityTimer >= 0f;
     }
 
     [HideInInspector] public bool isDead = false; // Flag to check if the entity is dead

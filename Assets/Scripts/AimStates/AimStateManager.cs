@@ -47,6 +47,7 @@ public class AimStateManager : MonoBehaviour
 
     MultiAimConstraint[] multiAims;
     WeightedTransform aimPositionWeightedTransform;
+    private bool toClose;
 
     
     private void Awake()
@@ -121,21 +122,29 @@ public class AimStateManager : MonoBehaviour
         
 
         Vector2 screenCenter = new Vector2(Screen.width / 2, Screen.height / 2);
+        Ray testRay = Camera.main.ScreenPointToRay(screenCenter);
+
+
+        if (Physics.Raycast(testRay, out RaycastHit test, Mathf.Infinity, aimMask))
+        {
+            var enemy = test.collider.GetComponentInParent<EnemyHealth>();
+
+            toClose = test.distance < minAimDistance && (enemy == null || enemy.isDead);
+
+            crosshair.SetCrosshairColor(enemy != null && enemy.isDead == false ? crosshair.enemyColor : crosshair.normalColor);
+        }
+        else
+        {
+            actualAimPosition = testRay.GetPoint(100f);
+        }
+
+
         Ray ray = Camera.main.ScreenPointToRay(screenCenter);
+        if (toClose) ray.origin = ray.GetPoint(minAimDistance);
 
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, aimMask))
         {
-            var enemy = hit.collider.GetComponentInParent<EnemyHealth>();
-            
-            if (hit.distance < minAimDistance && (enemy == null || enemy.isDead))
-            {
-                aimPosition.position = ray.GetPoint(minAimDistance);
-            }
-            else
-            {
-                aimPosition.position = Vector3.Lerp(aimPosition.position, hit.point, aimTransitionSpeed * Time.deltaTime);
-            }
-            crosshair.SetCrosshairColor(enemy != null && enemy.isDead == false ? crosshair.enemyColor : crosshair.normalColor);
+            aimPosition.position = Vector3.Lerp(aimPosition.position, hit.point, aimTransitionSpeed * Time.deltaTime);
         }
         else
         {
