@@ -53131,7 +53131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3061743688293090794, guid: f7e4977a5759473458ffc9a0494e3d42, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.3
+      value: -3.48
       objectReference: {fileID: 0}
     - target: {fileID: 3061743688293090794, guid: f7e4977a5759473458ffc9a0494e3d42, type: 3}
       propertyPath: m_LocalPosition.z
@@ -53168,6 +53168,10 @@ PrefabInstance:
     - target: {fileID: 5345754324509635616, guid: f7e4977a5759473458ffc9a0494e3d42, type: 3}
       propertyPath: m_Name
       value: HealPost (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874758828243057896, guid: f7e4977a5759473458ffc9a0494e3d42, type: 3}
+      propertyPath: m_Radius
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 8091772590902083588, guid: f7e4977a5759473458ffc9a0494e3d42, type: 3}
       propertyPath: healAmount
@@ -62736,7 +62740,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3061743688293090794, guid: f7e4977a5759473458ffc9a0494e3d42, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 51
+      value: 52
       objectReference: {fileID: 0}
     - target: {fileID: 3061743688293090794, guid: f7e4977a5759473458ffc9a0494e3d42, type: 3}
       propertyPath: m_LocalPosition.y
@@ -62777,6 +62781,10 @@ PrefabInstance:
     - target: {fileID: 5345754324509635616, guid: f7e4977a5759473458ffc9a0494e3d42, type: 3}
       propertyPath: m_Name
       value: HealPost (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874758828243057896, guid: f7e4977a5759473458ffc9a0494e3d42, type: 3}
+      propertyPath: m_Radius
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 8091772590902083588, guid: f7e4977a5759473458ffc9a0494e3d42, type: 3}
       propertyPath: healAmount

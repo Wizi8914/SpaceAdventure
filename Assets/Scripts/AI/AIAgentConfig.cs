@@ -5,31 +5,56 @@ using UnityEngine.AI;
 public class AIAgentConfig : ScriptableObject
 {
     [Header("AI Agent Configuration")]
+    [Tooltip("Maximum health points for the AI agent")]
     public float maxHealth = 100f;
+    [Tooltip("Movement speed of the AI agent")]
     public float speed = 3.5f;
 
     [Header("AI Behavior Settings")]
+    [Tooltip("Maximum time for AI behavior calculations")]
     public float maxTime = 1f;
+    [Tooltip("Maximum distance for AI behavior triggers")]
     public float maxDistance = 1f;
-    public float minSeenTime = 1f; // Minimum time the player must be seen to trigger a response
-    public float maxSightDistance = 10f; // Maximum distance for AI to see the player
+    [Tooltip("Minimum time the player must be seen to trigger a response")]
+    public float minSeenTime = 1f;
+    [Tooltip("Maximum distance for AI to see the player")]
+    public float maxSightDistance = 10f;
 
     [Header("Patrol Parameters")]
-    public float patrolDistanceThreshold = 1f; // Distance to the next patrol point before moving to the next one
-    public float patrolWaitTime = 0f; // Time to wait at each patrol point
+    [Tooltip("Distance to the next patrol point before moving to the next one")]
+    public float patrolDistanceThreshold = 1f;
+    [Tooltip("Time to wait at each patrol point")]
+    public float patrolWaitTime = 0f;
+    [Tooltip("Movement speed during patrol")]
     public float patrolSpeed = 3.5f;
 
     [Header("Detection Settings")]
-    public float minAttackDistance = 2f; // Minimum distance for the AI to start attacking
-    public float maxAttackDistance = 5f; // Maximum distance for the AI to consider
-    public float maxChaseDistance = 10f; // Maximum distance for the AI to chase the player
-    public float maxChaseTime = 5f; // Maximum time the AI will chase the player
-    public float maxChaseDurationWithoutVision = 3f; // Maximum time the AI will chase the player without seeing them
+    [Tooltip("Distance the AI can see")]
+    public float lookDistance = 30f;
+    [Tooltip("Field of view angle for the AI")]
+    [Range(0, 360)]
+    public float fieldOfView = 120f;
+
+    [Tooltip("Minimum distance for the AI to start attacking")]
+    public float minAttackDistance = 2f;
+    [Tooltip("Maximum distance for the AI to consider attacking")]
+    public float maxAttackDistance = 5f;
+
+    [Header("Chase Settings")]
+    [Tooltip("Maximum distance for the AI to chase the player")]
+    public float maxChaseDistance = 10f;
+    [Tooltip("Maximum time the AI will chase the player")]
+    public float maxChaseTime = 5f;
+    [Tooltip("Maximum time the AI will chase the player without seeing them")]
+    public float maxChaseDurationWithoutVision = 3f;
 
     [Header("Weapon Settings")]
-    public GameObject weaponPrefab; //
-    public float inaccuracy = 2f; // How much the bullet can deviate from the target direction
+    [Tooltip("Weapon prefab to spawn for this AI agent")]
+    public GameObject weaponPrefab;
+    [Tooltip("How much the bullet can deviate from the target direction")]
+    public float inaccuracy = 2f;
 
     [Header("Death Settings")]
-    public float TimeToDie = 5f; // Time before the enemy is destroyed after death
+    [Tooltip("Time before the enemy is destroyed after death")]
+    public float TimeToDie = 5f;
 }

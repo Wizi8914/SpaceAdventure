@@ -26,6 +26,8 @@ public class DetectionManager : MonoBehaviour
         if (isAIAgent)
         {
             agent = GetComponent<AIAgent>();
+            lookDistance = agent.config.lookDistance;
+            fov = agent.config.fieldOfView;
         }
 
         playerHead = GameManager.Instance.playerHead;
