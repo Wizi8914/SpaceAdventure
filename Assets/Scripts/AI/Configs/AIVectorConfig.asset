@@ -21,9 +21,11 @@ MonoBehaviour:
   patrolDistanceThreshold: 2
   patrolWaitTime: 0.5
   patrolSpeed: 2
+  lookDistance: 30
+  fieldOfView: 200
   minAttackDistance: 4
   maxAttackDistance: 8
-  maxChaseDistance: 10
+  maxChaseDistance: 25
   maxChaseTime: 20
   maxChaseDurationWithoutVision: 3
   weaponPrefab: {fileID: 347277832849199661, guid: dc8836594774b2f4da4dc9d63dd69200, type: 3}

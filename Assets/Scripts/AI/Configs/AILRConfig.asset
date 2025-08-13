@@ -21,6 +21,8 @@ MonoBehaviour:
   patrolDistanceThreshold: 2
   patrolWaitTime: 0.5
   patrolSpeed: 2
+  lookDistance: 45
+  fieldOfView: 150
   minAttackDistance: 8.5
   maxAttackDistance: 11
   maxChaseDistance: 20
