@@ -49,6 +49,7 @@ public class PlayerHealth : Health
     protected override void OnHeal(float amount)
     {
         healthBar.value = currentHealth;
+        displayedHealth = currentHealth;
         vignetteEffect.SetVignetteIntensity(1f - healthBar.normalizedValue);
     }
 
