@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class RotateSky : MonoBehaviour
 {
-    public float rotationSpeed = 2f;
+    public float rotationSpeed = 1f;
 
     // Update is called once per frame
     void Update()
