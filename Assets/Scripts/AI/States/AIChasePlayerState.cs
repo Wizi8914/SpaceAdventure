@@ -112,6 +112,5 @@ public class AIChasePlayerState : AIState
 
     public void ExitState(AIAgent agent)
     {
-        // Code to execute when exiting the chase state
     }
 }

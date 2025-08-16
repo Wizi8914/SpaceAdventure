@@ -9,14 +9,14 @@ public class AIAttackPlayerState : AIState
 
     public void EnterState(AIAgent agent)
     {
-        agent.animator.SetBool("Aiming", true); // Set the aiming animation
-        agent.navMeshAgent.stoppingDistance = agent.config.minAttackDistance; // Set the stopping distance to the attack range
+        agent.animator.SetBool("Aiming", true);
+        agent.navMeshAgent.stoppingDistance = agent.config.minAttackDistance;
         agent.navMeshAgent.speed = agent.config.speed;
     }
 
     public void ExitState(AIAgent agent)
     {
-        agent.animator.SetBool("Aiming", false); // Reset the aiming animation
+        agent.animator.SetBool("Aiming", false);
     }
 
     public void UpdateState(AIAgent agent)
@@ -26,7 +26,7 @@ public class AIAttackPlayerState : AIState
         float distanceToPlayer = Vector3.Distance(agent.transform.position, agent.playerTransform.position);
         if (distanceToPlayer > agent.config.maxAttackDistance)
         {
-            agent.stateMachine.ChangeState(AIStateID.ChasePlayer); // If too far, switch to chase state
+            agent.stateMachine.ChangeState(AIStateID.ChasePlayer);
             return;
         }
 

@@ -4765,17 +4765,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4107509287133511036, guid: 426acf8710ade094f8867bdcacc7ca1a, type: 3}
   m_PrefabInstance: {fileID: 741823720}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &124220657 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4638090426410132109, guid: 426acf8710ade094f8867bdcacc7ca1a, type: 3}
-  m_PrefabInstance: {fileID: 741823720}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 124220653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75131394aaae54644be48b3cb26ef44f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &128184943
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24098,18 +24087,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8023436256014013024, guid: e536862bed0384d4bbe31b3960f8fd76, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 16.28248
-      objectReference: {fileID: 0}
-    - target: {fileID: 8023436256014013024, guid: e536862bed0384d4bbe31b3960f8fd76, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -5.764344
-      objectReference: {fileID: 0}
-    - target: {fileID: 8023436256014013024, guid: e536862bed0384d4bbe31b3960f8fd76, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 31.075314
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25118,34 +25095,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 3497438432933083119, guid: 426acf8710ade094f8867bdcacc7ca1a, type: 3}
-      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 124220657}
-    - target: {fileID: 3497438432933083119, guid: 426acf8710ade094f8867bdcacc7ca1a, type: 3}
-      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: RestartGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 3497438432933083119, guid: 426acf8710ade094f8867bdcacc7ca1a, type: 3}
-      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: EndGameMenu, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4107509287133511036, guid: 426acf8710ade094f8867bdcacc7ca1a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4663441120510749594, guid: 426acf8710ade094f8867bdcacc7ca1a, type: 3}
-      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 124220657}
-    - target: {fileID: 4663441120510749594, guid: 426acf8710ade094f8867bdcacc7ca1a, type: 3}
-      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: ReturnToMainMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 4663441120510749594, guid: 426acf8710ade094f8867bdcacc7ca1a, type: 3}
-      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: EndGameMenu, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 4713142997578538428, guid: 426acf8710ade094f8867bdcacc7ca1a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -25225,18 +25174,6 @@ PrefabInstance:
     - target: {fileID: 4713142997578538428, guid: 426acf8710ade094f8867bdcacc7ca1a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7737289211832644933, guid: 426acf8710ade094f8867bdcacc7ca1a, type: 3}
-      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 124220657}
-    - target: {fileID: 7737289211832644933, guid: 426acf8710ade094f8867bdcacc7ca1a, type: 3}
-      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: QuitGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 7737289211832644933, guid: 426acf8710ade094f8867bdcacc7ca1a, type: 3}
-      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: EndGameMenu, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8086487391894111806, guid: 426acf8710ade094f8867bdcacc7ca1a, type: 3}
       propertyPath: m_AnchorMax.x

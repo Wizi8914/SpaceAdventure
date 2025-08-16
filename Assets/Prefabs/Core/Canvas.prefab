@@ -1696,6 +1696,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1134486994837107691, guid: 7c4ebbb556057ed4aa5944d6b71683da, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 4638090426410132109}
+    - target: {fileID: 1134486994837107691, guid: 7c4ebbb556057ed4aa5944d6b71683da, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: RestartGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 1134486994837107691, guid: 7c4ebbb556057ed4aa5944d6b71683da, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: EndGameMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 3672115148973600901, guid: 7c4ebbb556057ed4aa5944d6b71683da, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1776,6 +1788,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6077532771715756353, guid: 7c4ebbb556057ed4aa5944d6b71683da, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 4638090426410132109}
+    - target: {fileID: 6077532771715756353, guid: 7c4ebbb556057ed4aa5944d6b71683da, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 6077532771715756353, guid: 7c4ebbb556057ed4aa5944d6b71683da, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: EndGameMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187407758728146846, guid: 7c4ebbb556057ed4aa5944d6b71683da, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 4638090426410132109}
+    - target: {fileID: 9187407758728146846, guid: 7c4ebbb556057ed4aa5944d6b71683da, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ReturnToMainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187407758728146846, guid: 7c4ebbb556057ed4aa5944d6b71683da, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: EndGameMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1786,3 +1822,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3672115148973600901, guid: 7c4ebbb556057ed4aa5944d6b71683da, type: 3}
   m_PrefabInstance: {fileID: 4555360581486806020}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4638090426410132109 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9181198048091858569, guid: 7c4ebbb556057ed4aa5944d6b71683da, type: 3}
+  m_PrefabInstance: {fileID: 4555360581486806020}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75131394aaae54644be48b3cb26ef44f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

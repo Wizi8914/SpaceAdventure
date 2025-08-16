@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public float currentHealth = 100f; // Current health of the entity
-    public float maxHealth = 100f; // Maximum health of the entity
+    public float currentHealth = 100f;
+    public float maxHealth = 100f;
 
-    public float invincibilityDuration = 0f; // Duration of invincibility after taking damage
-    private float invincibilityTimer = 0f; // Timer for invincibility after taking damage
+    public float invincibilityDuration = 0f;
+    private float invincibilityTimer = 0f;
 
     void Update()
     {
@@ -28,7 +28,7 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float damage, bool isHeadShot = false, GameObject emitter = null)
     {
-        if (isDead) return; // If already dead, do nothing
+        if (isDead) return;
         if (IsInvincible()) return;
 
         invincibilityTimer = invincibilityDuration;

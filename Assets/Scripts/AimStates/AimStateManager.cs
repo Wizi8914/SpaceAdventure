@@ -76,11 +76,11 @@ public class AimStateManager : MonoBehaviour
         ogYFollowPosition = camFollowPos.localPosition.y;
         yFollowPosition = ogYFollowPosition;
 
-        // Get Cinemachine Camera
         cam = GetComponentInChildren<CinemachineCamera>();
         hipFov = cam.Lens.FieldOfView;
 
         animator = GetComponent<Animator>();
+        
         // Set up input
         playerInput = GetComponentInChildren<PlayerInput>();
         SwitchState(Hip);

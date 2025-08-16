@@ -46,8 +46,6 @@ public class Bullet : MonoBehaviour
 
             if (enemy.currentHealth <= 0f && enemy.isDead == false)
             {
-                
-
                 Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
                 rb.AddForce(direction * weapon.ennemyKickBackForce, ForceMode.Impulse);
 

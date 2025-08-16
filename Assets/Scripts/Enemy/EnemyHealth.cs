@@ -18,17 +18,16 @@ public class EnemyHealth : Health
         healthBar = canvas.GetComponentInChildren<Slider>();
 
         healBarCut = healthBar.GetComponent<HealBarCut>();
-        maxHealth = agent.config.maxHealth; // Set the max health in the agent config
-        healthBar.maxValue = currentHealth; // Initialize the health bar value
-        healthBar.value = currentHealth; // Set the initial health bar value
-        displayedHealth = currentHealth; // Initialize displayed health
+        maxHealth = agent.config.maxHealth;
+        healthBar.maxValue = currentHealth;
+        healthBar.value = currentHealth;
+        displayedHealth = currentHealth;
 
         UpdateHealthBar();
     }
 
     protected override void OnDeath(GameObject killer)
     {
-        isDead = true;
         GetComponent<Animator>().enabled = false; // Disable the animator
         agent.ragdollManager.EnableRagdoll(); // Enable ragdoll physics
 

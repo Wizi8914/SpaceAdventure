@@ -21,7 +21,6 @@ public class ActionStateManager : MonoBehaviour
     public MultiAimConstraint rHandAnim;
     public TwoBoneIKConstraint lHandIK;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         SwitchState(Default);
@@ -29,7 +28,6 @@ public class ActionStateManager : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         currentState.UpdateState(this);

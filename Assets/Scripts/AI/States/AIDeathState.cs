@@ -10,10 +10,9 @@ public class AIDeathState : AIState
 
     public void EnterState(AIAgent agent)
     {
-        //agent.navMeshAgent.isStopped = true;
         agent.ragdollManager.EnableRagdoll();
-        agent.animator.enabled = false; // Disable the animator to stop animations
-        agent.weaponClassManager.DropWeapon(agent.config.TimeToDie); // Disable weapons if applicable
+        agent.animator.enabled = false;
+        agent.weaponClassManager.DropWeapon(agent.config.TimeToDie);
 
     }
 
